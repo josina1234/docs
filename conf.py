@@ -53,7 +53,11 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_context = {
         "display_github": True,
+        "github_user": "HippoCampusRobotics",
+        "github_repo": "docs",
+        "github_version": "master/"
 }
+
 
 [extensions]
 show_authors=True
