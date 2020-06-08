@@ -11,6 +11,8 @@ Welcome to HippoCampusDocs's documentation!
    :caption: Contents:
    
    getting_started
+   contributing
+   workflow_and_style_guide
 
 
 
