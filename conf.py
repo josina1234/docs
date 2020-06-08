@@ -10,9 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+# import o
 # import sys
-# sys.path.insert(0, os.path.abspath('.'))
+# sys.path.insert(0, os.path.abspath('_ext'))
 
 import sphinx_rtd_theme
 
@@ -29,7 +29,7 @@ author = 'Thies Lennart Alff'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-        "sphinx.ext.githubpages"
+        "sphinx.ext.githubpages",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -51,6 +51,9 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_context = {
+        "display_github": True,
+}
 
 [extensions]
 show_authors=True
