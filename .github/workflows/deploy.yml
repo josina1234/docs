@@ -10,15 +10,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Build and Deploy
+      - name: Build
         uses: ammaraskar/sphinx-action@master
         with:
           docs-folder: "./"
-      - name: remove me
-        run:
-          ls _build
       
-      - uses: actions/upload-artifact@v1
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
         with:
           name: "DocumnetationHTML"
           path: _build/html/
@@ -39,3 +37,4 @@ jobs:
           directory: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+ 
