@@ -12,7 +12,7 @@ Get The Code
 
 .. code-block:: sh
 
-    git clone --recursive https://github.com/PX4/PX4-Autopilot.git
+    git clone --branch v1.12.3 --recursive https://github.com/PX4/PX4-Autopilot.git
 
 
 Export Environment Variables
