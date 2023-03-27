@@ -46,11 +46,11 @@ Modify :file:`user-data` on the :file:`system-boot` partition to your liking. An
 
 
 
-Modify User Config
-==================
+Modify config.txt
+=================
 
 .. code-block:: sh
-   :caption: usercfg.txt
+   :caption: config.txt
 
    dtoverlay=uart4
    dtoverlay=uart5
@@ -58,6 +58,21 @@ Modify User Config
    start_x=1
    gpu_mem=256
    dtparam=i2c_vc=on
+
+Create Workspace
+================
+
+.. code-block:: sh
+
+   mkdir -p ~/ros2/src
+   mkdir -p ~/ros2_underlay/src
+
+Concept
+*******
+
+We use :file:`ros2` as development workspace und :file:`ros2_underlay` for larger manually compiled non-development packages that take a lot of time to compile/recompile.
+Having them in a separate workspace reduces compilation time for the development workspace.
+Typical packages for :file:`ros2_underlay` are :code:`plot_juggler`, :code:`px4_msgs`, :code:`apriltag_ros`.
 
 
 
