@@ -21,7 +21,7 @@ import sys
 # -- Project information -----------------------------------------------------
 
 project = 'HippoCampusDocs'
-copyright = '2020, Thies Lennart Alff, Nathalie Bauschmann'
+copyright = '2020-2023, Thies Lennart Alff, Nathalie Bauschmann'
 author = 'Thies Lennart Alff, Nathalie Bauschmann'
 
 
@@ -70,6 +70,7 @@ html_context = {
 show_authors = True
 todo_include_todos = True
 autosectionlabel_prefix_document = True
+numfig = True
 
 
 favicons = [

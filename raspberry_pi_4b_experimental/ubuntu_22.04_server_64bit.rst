@@ -1,7 +1,7 @@
-Ubuntu 20.04 Server 64bit
+Ubuntu 22.04 Server 64bit
 #########################
 
-.. todo:: Probably the Arducam OV9281 is not compatible with Ubuntu.
+.. todo:: Probably the MIPI Arducam OV9281 is not compatible with Ubuntu.
 
 Modify Cloud-Init
 =================
@@ -32,33 +32,31 @@ Modify :file:`user-data` on the :file:`system-boot` partition to your liking. An
    # allow password ssh login
    ssh_pwauth: true
 
+   package_update: true
+   package_upgrade: true
+   packages:
+       - avahi-daemon
+
    power_state: 
        mode: reboot
        delay: now
        condition: True
 
+.. note:: Make sure to connect the Raspberry Pi with the Internet via Ethernet before booting the first time.
 
-Modify User Config
-==================
-
-.. code-block:: sh
-   :caption: usercfg.txt
-
-   dtoverlay=uart4
-   dtoverlay=uart5
-   enable_uart=1
-   start_x=1
-   gpu_mem=256
-   dtparam=i2c_vc=on
-
-Install Avahi
-=============
-
-Boot the system l and install avahi to resolve hostnames.
+Create Workspace
+================
 
 .. code-block:: sh
 
-   sudo apt install avahi-daemon
+   mkdir -p ~/ros2/src
+   mkdir -p ~/ros2_underlay/src
+
+Concept
+*******
+
+
+
 
 
 
