@@ -10,6 +10,7 @@ Welcome to HippoCampusDocs's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :numbered:
    
    getting_started
    raspberry_pi_4b_setup

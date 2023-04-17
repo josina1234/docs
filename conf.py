@@ -70,6 +70,7 @@ html_context = {
 show_authors = True
 todo_include_todos = True
 autosectionlabel_prefix_document = True
+numfig = True
 
 
 favicons = [
