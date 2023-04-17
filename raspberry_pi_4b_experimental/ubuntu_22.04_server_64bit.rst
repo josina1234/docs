@@ -1,7 +1,7 @@
 Ubuntu 22.04 Server 64bit
 #########################
 
-.. todo:: Probably the Arducam OV9281 is not compatible with Ubuntu.
+.. todo:: Probably the MIPI Arducam OV9281 is not compatible with Ubuntu.
 
 Modify Cloud-Init
 =================
@@ -44,21 +44,6 @@ Modify :file:`user-data` on the :file:`system-boot` partition to your liking. An
 
 .. note:: Make sure to connect the Raspberry Pi with the Internet via Ethernet before booting the first time.
 
-
-
-Modify config.txt
-=================
-
-.. code-block:: sh
-   :caption: config.txt
-
-   dtoverlay=uart4
-   dtoverlay=uart5
-   enable_uart=1
-   start_x=1
-   gpu_mem=256
-   dtparam=i2c_vc=on
-
 Create Workspace
 ================
 
@@ -70,9 +55,7 @@ Create Workspace
 Concept
 *******
 
-We use :file:`ros2` as development workspace und :file:`ros2_underlay` for larger manually compiled non-development packages that take a lot of time to compile/recompile.
-Having them in a separate workspace reduces compilation time for the development workspace.
-Typical packages for :file:`ros2_underlay` are :code:`plot_juggler`, :code:`px4_msgs`, :code:`apriltag_ros`.
+
 
 
 
