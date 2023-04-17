@@ -8,6 +8,7 @@ ROS2
    :caption: Contents:
    
    ros2/getting_started_with_ros2
+   ros2/concepts
    ros2/misc
    ros2/px4
    ros2/apriltag
