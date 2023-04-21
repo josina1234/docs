@@ -5,7 +5,7 @@ If you want to update already existing packages in the :file:`/ros_catkin_ws`, y
 
 .. attention:: 
    
-   We assume here that you haven't added any new ROS packages by following the :ref:`raspberry_pi_4b_setup/install_ros_packages:Install ROS packages` guide. If you have, these won't be updated by following these steps.
+   We assume here that you haven't added any new ROS packages by following the :ref:`ros_deprecated/raspberry_pi_4b_setup/install_ros_packages:Install ROS packages` guide. If you have, these won't be updated by following these steps.
 
 #. Change directory
 

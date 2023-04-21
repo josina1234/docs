@@ -1,8 +1,6 @@
 Installing PX4
 ##############
 
-.. todo:: Rework for ROS2 needed.
-
 We try to stick to the original PX4 software as much as possible.
 
 Feel free to modifiy your fork of the autopilot as much as you want, but if you add functionality, that should be shared with the rest of the world, create a pull request.

@@ -1,1 +1,0 @@
-.. include:: ../raspberry_pi_4b_setup/quality_of_life_features.rst

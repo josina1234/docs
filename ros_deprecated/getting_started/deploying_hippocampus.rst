@@ -1,8 +1,6 @@
 Deploying HippoCampus
 #####################
 
-.. todo:: Rework for ROS2 needed.
-
 Flashing the PixRacer
 =====================
 
