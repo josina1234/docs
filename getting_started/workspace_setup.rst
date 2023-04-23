@@ -62,8 +62,8 @@ Since this is very tedious, we define some aliases. Put these two lines into you
 
 Make sure to source the :file:`.zshrc` in your terminal when you make changes. 
 
-ros2_underlay Workspace
-***********************
+Underlay Workspace
+******************
 
 We can now build the first "under"layed workspace :file:`ros2_underlay`.
 But first, let's check for unresolved dependencies.
@@ -86,8 +86,8 @@ After a successful build, we can source this workspace in the :file:`.zshrc`, so
 
    echo "source $HOME/ros2_underlay/install/setup.zsh" >> ~/.zshrc
 
-Main ros2 Workspace
-*******************
+Main Workspace
+**************
 
 Now, we can build our main workspace. Let's get our packages:
 
