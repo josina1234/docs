@@ -13,6 +13,7 @@ Welcome to HippoCampusDocs's documentation!
    :numbered: 3
    
    00_main_toc/getting_started
+   00_main_toc/concepts
    00_main_toc/raspberry_pi_4b_setup
    00_main_toc/hippocampus_hardware
    00_main_toc/bluerov
