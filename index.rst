@@ -12,6 +12,7 @@ Welcome to HippoCampusDocs's documentation!
    :caption: Contents:
    :numbered: 3
    
+   00_main_toc/contributing
    00_main_toc/getting_started
    00_main_toc/concepts
    00_main_toc/raspberry_pi_4b_setup
@@ -20,8 +21,6 @@ Welcome to HippoCampusDocs's documentation!
    00_main_toc/gantry
    00_main_toc/underwater_camera
    00_main_toc/ros2
-   00_main_toc/contributing
-   00_main_toc/workflow_and_style_guide
    00_main_toc/ros_deprecated
 
 

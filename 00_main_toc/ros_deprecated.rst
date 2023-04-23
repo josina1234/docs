@@ -10,3 +10,4 @@ ROS Deprecated
 
    /ros_deprecated/getting_started
    /ros_deprecated/raspberry_pi_4b_setup
+   /ros_deprecated/workflow_and_style_guide
