@@ -1,5 +1,5 @@
-Raspberry Pi 4B Experimental
-############################
+Raspberry Pi 4B Setup
+#####################
 
 .. toctree::
    :maxdepth: 2
