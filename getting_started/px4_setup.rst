@@ -1,5 +1,7 @@
-PX4
-###
+PX4 Setup
+#########
+
+.. note:: PX4 is currently used for the real robot exclusively and is not part of the simulation. Skip this section if you are not preparing for the lab experiments.
 
 Building the Firmware
 =====================
@@ -15,14 +17,14 @@ A tested PX4-Version is the commit :code:`45b390b0bf`.
    && git checkout 45b390b0bf \
    && git submodule update --init --recursive
 
-For this version the RTPS support is *not* enabled by default for the :code:`fmu-v4` target. One has to modify the file :file:`boards/px4/fmu-v4/default.px4board` and add the line
+For this version the RTPS support is *not* enabled by default for the :code:`fmu-v4` target (i.e. the PixRacer). One has to modify the file :file:`boards/px4/fmu-v4/default.px4board` and add the line
 
 .. code-block:: sh
 
    CONFIG_MODULES_MICRODDS_CLIENT=y
 
 
-Also modify the autostart line in :file:`src/modules/microdds_client/module.yaml` if you want to have a namespace prepended to the topic names
+Also modify the autostart-line in :file:`src/modules/microdds_client/module.yaml` if you want to have a namespace prepended to the topic names
 
 .. code-block:: sh
 
@@ -34,7 +36,7 @@ Build the firmware
 
    make px4_fmu-v4
 
-To manually start the :code:`microdds_client`, go to the nsh terminal and run
+Normally, the :code:`microdds_client` is started automatically, and no further actions are required. Anyhow, to manually start the :code:`microdds_client`, go to the :code:`nsh` terminal and run
 
 .. code-block:: sh
 

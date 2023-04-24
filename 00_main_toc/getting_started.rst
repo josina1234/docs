@@ -12,9 +12,9 @@ Getting Started
    :maxdepth: 2
    :caption: Contents:
 
-   getting_started/quality_of_life_features_2
-   getting_started/installing_ros
-   getting_started/installing_px4
-   getting_started/installing_qgc
-   getting_started/starting_gazebo_simulation
-   getting_started/deploying_hippocampus
+   /getting_started/ros_installation
+   /getting_started/workspace_setup
+   /getting_started/px4_setup
+   /getting_started/installing_qgc
+   /getting_started/starting_gazebo_simulation
+   /getting_started/deploying_hippocampus

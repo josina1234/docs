@@ -1,10 +1,5 @@
-Getting Started with ROS2
-=========================
-
-.. todo:: 
-   
-   Link to a more elaborate version from Lennart. In this guide, we will keep it as short (and simple) as possible. Just execute one code block after the other...
-
+Workspace Setup
+===============
 
 In the following, we describe our ROS2 system setup.
 
@@ -12,18 +7,10 @@ In the following, we describe our ROS2 system setup.
    This guide assumes `Ubuntu 22.04 <https://releases.ubuntu.com/22.04/>`_ is used as OS. We use ROS2 `Humble <https://docs.ros.org/en/humble/index.html>`_.
 
 
-Installing ROS2
----------------
-
-Follow this `guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html>`_ from the official ROS2 documentation. We use the recommended way of installing the Debian packages.
-
-Make sure to pick the 'desktop install' unless you have a reason not to (e.g. on a SBC).
-
-
 Our Workspace Setup
 -------------------
 
-There are a few packages that we will need to build from source, but probably will not touch (much). In order to keep the compilation time of our workspace as short as possible during development, we will use a setup with two overlayed workspaces. 
+There are a few packages that we will need to build from source, but probably will not touch (or at least not too much). In order to keep the compilation time of our workspace as short as possible during development, we will use a setup with two overlayed workspaces. 
 We use :file:`ros2` as development workspace und :file:`ros2_underlay` for larger manually compiled non-development packages that take a lot of time to compile/recompile.
 Typical packages for :file:`ros2_underlay` are :code:`px4_msgs` and a ROS2 version of :code:`apriltag_ros` (since there has not been an official release at this point of time).
 In :file:`ros2`, we will keep all of our own packages.
@@ -75,8 +62,8 @@ Since this is very tedious, we define some aliases. Put these two lines into you
 
 Make sure to source the :file:`.zshrc` in your terminal when you make changes. 
 
-ros2_underlay Workspace
-***********************
+Underlay Workspace
+******************
 
 We can now build the first "under"layed workspace :file:`ros2_underlay`.
 But first, let's check for unresolved dependencies.
@@ -99,8 +86,8 @@ After a successful build, we can source this workspace in the :file:`.zshrc`, so
 
    echo "source $HOME/ros2_underlay/install/setup.zsh" >> ~/.zshrc
 
-Main ros2 Workspace
-***********************
+Main Workspace
+**************
 
 Now, we can build our main workspace. Let's get our packages:
 
@@ -122,7 +109,7 @@ These packages have some more dependencies. Let's resolve them by executing
 
    cd ~/ros2 && rosdep install --from-paths src -y --ignore-src
 
-Make sure that the underlayed workspace containing external packages is sourced for this.
+Make sure that the underlay workspace containing external packages is sourced for this.
 
 Then, we can build this workspace using our defined alias.
 
