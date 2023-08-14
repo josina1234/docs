@@ -71,7 +71,7 @@ Start-Everyting-Check-List
 
 #. Use the the green and red push button to arm/disarm the vehicle.
 
-.. attention:: Always keep an eye on the battery level. There is a indicator light connected to the Raspberry Pi controlloing the buttons. Besides, the `esc_commander` node also publishes the batery voltage measured by the ESCs under :file:`/uuv02/battery_voltage`. Make sure to **not** discharge the battery below 3.5V (it is okay to have short voltage drops under heavy load until 3.3V) per cell. Otherwise tell Lennart and/or Nathalie about it.
+.. attention:: Always keep an eye on the battery level. There is a indicator light connected to the Raspberry Pi controlloing the buttons. Besides, the `esc_commander` node also publishes the battery voltage measured by the ESCs under :file:`/uuv02/battery_voltage`. Make sure to **not** discharge the battery below 3.5V (it is okay to have short voltage drops under heavy load until 3.3V) per cell. Otherwise tell Lennart and/or Nathalie about it.
 
 Shutting-Down-Check-List
 ========================
@@ -80,7 +80,7 @@ Shutting-Down-Check-List
 
 #. Shutdown at least all battery powered Raspberry Pis (usually this means the one inside the vehicle) with :code:`sudo shutdown 0` (make sure you run this command on the Pi and not on your own device by accident).
 
-#. Disconnect all batteries and use the battery charger to charge the battery to storage voltage if you do not will reuse it immediately.
+#. Disconnect all batteries and use the battery charger to charge the battery to storage voltage if you will not reuse it immediately.
 
 #. If you have any batteries left that are not charged to storage voltage after your experiments are done, charge them to storage voltage. Do not store them at a voltage level above or below it.
 
