@@ -6,42 +6,16 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
     steps:
-      - name: Set up Python 3.10
-        uses: actions/setup-python@main
+      - id: deployment
+        uses: sphinx-notes/pages@v3
         with:
-          python-version: '3.10'
-      - name: Checkout
-        uses: actions/checkout@main
-        with:
-          submodules: true
+          documentation_path: ./
+          requirements_path: ./requirements.txt
 
-      - name: Build
-        run: |
-          pip install -r requirements.txt
-          make clean && make html
-      
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: "DocumnetationHTML"
-          path: _build/html/
-
-      - name: Commit documentation changes
-        run: |
-          git clone https://github.com/HippoCampusRobotics/docs.git --branch gh-pages --single-branch gh-pages
-          cp -r _build/html/* gh-pages/
-          cd gh-pages
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update documentation" -a || true
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: gh-pages
-          directory: gh-pages
-          force: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
- 
