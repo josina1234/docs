@@ -37,10 +37,18 @@ Build the firmware
    .. code-tab:: sh PixRacer
 
       make px4_fmu-v4
+
+   .. code-tab:: sh PixRacer Docker
+      
+      ./Tools/docker_run.sh 'make px4_fmu-v4'
    
    .. code-tab:: sh PixHawk 6C
 
       make px4_fmu-v6c
+
+   .. code-tab:: sh PixHawk 6C Docker
+
+      ./Tools/docker_run.sh 'make px4_fmu-v6c'
 
 Normally, the :code:`microdds_client` is started automatically, and no further actions are required. Anyhow, to manually start the :code:`microdds_client`, go to the :code:`nsh` terminal and run
 
