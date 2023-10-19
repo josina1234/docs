@@ -30,6 +30,32 @@ Also modify the autostart-line in :file:`src/modules/microdds_client/module.yaml
 
    set XRCE_DDS_ARGS "-t serial -d ${SERIAL_DEV} -b p:${BAUD_PARAM} -n uuv00"
 
+Also a good starting point for a minimal set of bridged topics defined in :file:`src/modules/microdds_client/dds_topics.yaml` is
+
+.. code-block:: yaml
+   :linenos:
+   :caption: src/modules/microdds_client/dds_topics.yaml
+
+   publications:
+
+     - topic: /fmu/out/failsafe_flags
+       type: px4_msgs::msg::FailsafeFlags
+
+     - topic: /fmu/out/sensor_combined
+       type: px4_msgs::msg::SensorCombined
+
+     - topic: /fmu/out/timesync_status
+       type: px4_msgs::msg::TimesyncStatus
+
+     - topic: /fmu/out/vehicle_odometry
+       type: px4_msgs::msg::VehicleOdometry
+
+   subscriptions:
+
+     - topic: /fmu/in/vehicle_visual_odometry
+       type: px4_msgs::msg::VehicleOdometry
+
+
 Build the firmware
 
 .. tabs::
