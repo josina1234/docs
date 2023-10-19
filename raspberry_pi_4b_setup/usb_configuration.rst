@@ -19,6 +19,10 @@ Create the file :file:`/etc/udev/rules.d/50-fcu.rules` and add the following lin
 
       ENV{FCU_USB}=="fcu_usb", SUBSYSTEM=="tty", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0032", SYMLINK+="fcu_usb"
 
+   .. code-tab:: sh PixHawk 6C
+
+      SUBSYSTEM=="tty", ATTRS{idVendor}=="1d6b", ATTRS{idProduct}=="0002", SYMLINK+="fcu_usb", MODE="0666"
+
 Retrigger the rules:
 
 .. code-block:: sh
