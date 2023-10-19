@@ -12,7 +12,7 @@ A tested PX4-Version is the commit :code:`45b390b0bf`.
 
 .. code-block:: sh
 
-   git clone https://github.com/PX4/PX4-Autopilot.git --recursive \
+   git clone https://github.com/PX4/PX4-Autopilot.git \
    && cd PX4-Autopilot \
    && git checkout 45b390b0bf \
    && git submodule update --init --recursive
