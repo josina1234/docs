@@ -10,3 +10,4 @@ Raspberry Pi 4B Setup
    /raspberry_pi_4b_setup/pinout
    /raspberry_pi_4b_setup/uart_configuration
    /raspberry_pi_4b_setup/usb_configuration
+   /raspberry_pi_4b_setup/ethernet
