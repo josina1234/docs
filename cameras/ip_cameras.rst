@@ -1,5 +1,5 @@
-Underwater Camera
-#################
+IP Cameras (Blick)
+##################
 
 .. note:: At the time of writing the IP addresses of the cameras are :code:`192.168.0.116` and :code:`192.168.0.148`. This might change in the future.
 

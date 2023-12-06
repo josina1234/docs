@@ -19,7 +19,7 @@ Welcome to HippoCampusDocs's documentation!
    00_main_toc/hippocampus_hardware
    00_main_toc/bluerov
    00_main_toc/gantry
-   00_main_toc/underwater_camera
+   00_main_toc/cameras
    00_main_toc/ros2
    00_main_toc/misc
    00_main_toc/ros_deprecated
