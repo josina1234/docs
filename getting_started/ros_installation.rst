@@ -55,11 +55,11 @@ Installation
    .. tabs::
       .. code-tab:: sh desktop-full
 
-         sudo apt install ros-humble-desktop-full
+         sudo apt install ros-iron-desktop-full
       
       .. code-tab:: sh perception (e.g. for Raspberry Pi)
 
-         sudo apt install ros-humble-perception
+         sudo apt install ros-iron-perception
 
 
 #. Install development tools
