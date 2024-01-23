@@ -97,3 +97,13 @@ img {
 .strike {
    text-decoration: line-through;
 }
+
+/* Hack for word-wrap in tables as desired by N.B. */
+.rst-content table.docutils {
+   table-layout: fixed;
+}
+
+.rst-content table.docutils td {
+   white-space: normal;
+}
+/* End of hack */
