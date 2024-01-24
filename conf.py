@@ -21,7 +21,7 @@ import sys
 # -- Project information -----------------------------------------------------
 
 project = 'HippoCampusDocs'
-copyright = '2020-2023, Thies Lennart Alff, Nathalie Bauschmann'
+copyright = '2020-2024, Thies Lennart Alff, Nathalie Bauschmann'
 author = 'Thies Lennart Alff, Nathalie Bauschmann'
 
 # -- General configuration ---------------------------------------------------

@@ -20,6 +20,7 @@ Welcome to HippoCampusDocs's documentation!
    00_main_toc/bluerov
    00_main_toc/gantry
    00_main_toc/cameras
+   00_main_toc/acoustic_modems
    00_main_toc/ros2
    00_main_toc/misc
    00_main_toc/ros_deprecated
