@@ -15,7 +15,7 @@ To test this you can use the :code:`motor_test` command in the FCU's shell (you 
 
 To let the first motor turn for a second you can enter for example this:
 
-.. code-block:: sh
+.. code-block:: console
 
-   motor_test test -p 60 -m 1 -t 1
+   $ motor_test test -p 60 -m 1 -t 1
 

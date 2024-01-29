@@ -58,9 +58,9 @@ Autogenerate Documentation
 
 To generate API documentation for Python packages add the them as submodule under the :file:`src` directory.
 
-.. code-block:: sh
+.. code-block:: console
 
-   PKG_NAME="insert-your-package-name-here"
+   $ PKG_NAME="insert-your-package-name-here" && \
    git submodule add https://github.com/HippoCampusRobotics/$PKG_NAME.git src/$PKG_NAME
 
 Add the package name to the :code:`packages` list in :file:`conf.py`.

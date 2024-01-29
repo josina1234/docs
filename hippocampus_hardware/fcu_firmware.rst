@@ -8,9 +8,9 @@ Building the Firmware
 
 Assuming the PX4-Autopilot firmmware has been cloned and the build tools has been installed as described in :ref:`getting_started/px4_setup:PX4 Setup`, building the firmware for the PixRacer is done by
 
-.. code-block:: sh
+.. code-block:: console
 
-   make px4_fmu-v4_default
+   $ make px4_fmu-v4_default
 
 Since the FCU is connected with the Raspberry Pi via USB, it is possible to flash new firmwares directly from the Raspberry Pi.
 

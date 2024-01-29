@@ -3,21 +3,21 @@ Afro ESC
 
 #. Download :code:`AVRA`.
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      git clone https://github.com/Ro5bert/avra.git
+      $ git clone https://github.com/Ro5bert/avra.git
 
 #. Build and install :code:`AVRA`
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      cd avra && sudo make install
+      $ cd avra && sudo make install
 
 #. Download the firmware
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      git clone https://github.com/hippocampusrobotics/tgy.git
+      $ git clone https://github.com/hippocampusrobotics/tgy.git
 
 #. Build the firmware. This depends on the interface used. The classic way to go is PWM. But if you want to control the ESCs directly from the Raspberry Pi, you might want to use I2C.
 
@@ -42,17 +42,17 @@ Afro ESC
          
          Build the firmware
 
-         .. code-block:: sh
+         .. code-block:: console
 
-            make all
+            $ make all
 
       .. tab:: I2C
 
          Build the firmware in 8 different versions with different :code:`MOTOR_ID` values starting from :code:`0x29` and increasing by 1 per step.
 
-            .. code-block:: sh
+            .. code-block:: console
 
-               make build_8
+               $ make build_8
 
 #. Connect the Afro Programmer with your computer and connect the data wires with the ESC. Supply the ESC with an appropriate voltage (probably ~10-12V).
 
@@ -62,9 +62,9 @@ Afro ESC
 
 #. Flash the :file:`afro_nfet.hex` firmware you have built before. 
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      avrdude -b 9600 -p m8 -P /dev/ttyUSB0 -c stk500v2 -e -U flash:w:afro_nfet.hex.0:i 
+      $ avrdude -b 9600 -p m8 -P /dev/ttyUSB0 -c stk500v2 -e -U flash:w:afro_nfet.hex.0:i 
 
    .. important:: Make sure :code:`avrdude` verifies the flashed data successfully. Otherwise rebuilt the firmware with :code:`make clean && make all` and try again.
    

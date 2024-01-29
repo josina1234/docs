@@ -4,34 +4,27 @@ Quality-of-Life Features
 The Fast Way
 ************
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo apt install -y zsh git curl wget byobu vim\
+   $ sudo apt install -y zsh git curl wget byobu vim\
    && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 Choose :code:`zsh` as default by hitting enter.
 
-.. code-block:: sh
+.. code-block:: console
 
-   # clone repo
-   mkdir -p "$HOME/.zsh"
-   git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+   $ mkdir -p "$HOME/.zsh" && \
+   git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure" && \
+   echo 'fpath+=$HOME/.zsh/pure \nautoload -U promptinit; promptinit \nprompt pure' | cat - ~/.zshrc > temp && mv temp ~/.zshrc && \
 
-   # add path to ~/.zshrc, initialize prompt and choose pure (at the top of the file!)
-   echo 'fpath+=$HOME/.zsh/pure \nautoload -U promptinit; promptinit \nprompt pure' | cat - ~/.zshrc > temp && mv temp ~/.zshrc
+   sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME=""/' ~/.zshrc && \
+   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
 
-   # delete default theme entry
-   sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME=""/' ~/.zshrc
-   # clone repo
-   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-   # add plugin to list of plugins
-   # assuming unchanged list containing only git, otherwise do this manually
-   sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions)/' ~/.zshrc
-   echo "zstyle ':prompt:pure:path' color 075\nzstyle ':prompt:pure:prompt:success' color 214\nzstyle ':prompt:pure:user' color 119\nzstyle ':prompt:pure:host' color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=161'" >> ~/.zshrc
-   echo "zstyle ':prompt:pure:path' color 075\nzstyle ':prompt:pure:prompt:success' color 214\nzstyle ':prompt:pure:user' color 119\nzstyle ':prompt:pure:host' color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=161'" >> ~/.zshrc
-   echo "export TERM=xterm-256color" >> ~/.zshrc
-   source ~/.zshrc
+   sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions)/' ~/.zshrc && \
+   echo "zstyle ':prompt:pure:path' color 075\nzstyle ':prompt:pure:prompt:success' color 214\nzstyle ':prompt:pure:user' color 119\nzstyle ':prompt:pure:host' color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=161'" >> ~/.zshrc && \
+   echo "zstyle ':prompt:pure:path' color 075\nzstyle ':prompt:pure:prompt:success' color 214\nzstyle ':prompt:pure:user' color 119\nzstyle ':prompt:pure:host' color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=161'" >> ~/.zshrc && \
+   echo "export TERM=xterm-256color" >> ~/.zshrc && \
+   source ~/.zshrc && \
    byobu-enable
 
 The Good Way
@@ -42,19 +35,19 @@ zsh
 
 We prefer using the Z shell (zsh). To install:
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo apt install -y zsh git curl
+   $ sudo apt install -y zsh git curl
 
 Install `oh-my-zsh <https://ohmyz.sh/>`_:
 
-.. code-block:: sh
+.. code-block:: console
 
-   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 Install the `Pure <https://github.com/sindresorhus/pure>`_ prompt:
 
-.. code-block:: sh
+.. code-block:: console
 
    # clone repo
    mkdir -p "$HOME/.zsh"
@@ -69,7 +62,7 @@ Install the `Pure <https://github.com/sindresorhus/pure>`_ prompt:
 
 Install `zsh-autosuggestions <https://github.com/zsh-users/zsh-autosuggestions>`_:
 
-.. code-block:: sh
+.. code-block:: console
 
    # clone repo
    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -80,24 +73,24 @@ Install `zsh-autosuggestions <https://github.com/zsh-users/zsh-autosuggestions>`
 
 Adjust colours of pure prompt and autosuggestions:
 
-.. code-block:: sh
+.. code-block:: console
 
-   echo "zstyle ':prompt:pure:path' color 075\nzstyle ':prompt:pure:prompt:success' color 214\nzstyle ':prompt:pure:user' color 119\nzstyle ':prompt:pure:host' color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=161'" >> ~/.zshrc
+   $ echo "zstyle ':prompt:pure:path' color 075\nzstyle ':prompt:pure:prompt:success' color 214\nzstyle ':prompt:pure:user' color 119\nzstyle ':prompt:pure:host' color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=161'" >> ~/.zshrc
 
 See the Pure `Zstyle options <https://github.com/sindresorhus/pure#zstyle-options>`_ and the `Xterm265 colour chart <https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg>`_ for other settings and colours.
 
 To avoid not seeing the nice colors we just selected:
 
-.. code-block:: sh
+.. code-block:: console
 
-   echo "export TERM=xterm-256color" >> ~/.zshrc
+   $ echo "export TERM=xterm-256color" >> ~/.zshrc
 
 
 To apply changes:
 
-.. code-block:: sh
+.. code-block:: console
 
-   source ~/.zshrc
+   $ source ~/.zshrc
 
 
 Byobu
@@ -105,15 +98,15 @@ Byobu
 
 To install `Byobu <https://www.byobu.org/>`_, a terminal multiplexer:
 
-.. code-block:: sh 
+.. code-block:: console 
 
-   sudo apt install byobu
+   $ sudo apt install byobu
 
 Enable Byobu:
 
-.. code-block:: sh
+.. code-block:: console
 
-   byobu-enable
+   $ byobu-enable
 
 
 
@@ -152,9 +145,9 @@ VIM
 
 To install vim:
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo apt install vim
+   $ sudo apt install vim
 
 
 

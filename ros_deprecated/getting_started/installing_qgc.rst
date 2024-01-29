@@ -25,9 +25,9 @@ Let's name it :file:`qgc_icon.png`, and put it here: :file:`~/.local/share/icons
 
 Now, we can create a desktop entry. We will call this file :file:`qgroundcontrol.desktop`, however, the name doesn't really matter.
 
-.. code-block:: sh
+.. code-block:: console
 
-   cd ~/.local/share/applications && touch qgroundcontrol.desktop
+   $ cd ~/.local/share/applications && touch qgroundcontrol.desktop
 
 Open this file in your favourite text editor and paste the following lines:
 

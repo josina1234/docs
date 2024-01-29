@@ -103,9 +103,9 @@ Create the file :file:`/etc/udev/rules.d/50-serial.rules` with the following con
 
 You can apply these changes by
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo udevadm control --reload-rules && sudo udevadm trigger
+   $ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 To check, that the rule is applied correctly, you can execute
 
@@ -142,12 +142,12 @@ Identify KERNELS
 
 To identify the KERNELS paramter of a certain :file:`ttyAMA` device, execute the following command.
 
-.. code-block:: sh
+.. code-block:: console
 
-   udevadm info --name=/dev/ttyAMA1 --attribute-walk
+   $ udevadm info --name=/dev/ttyAMA1 --attribute-walk
 
 
-.. code-block:: sh
+.. code-block:: console
    :linenos:
    :emphasize-lines: 7
 

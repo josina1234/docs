@@ -25,19 +25,19 @@ Create the file :file:`/etc/udev/rules.d/50-fcu.rules` and add the following lin
 
 Retrigger the rules:
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo udevadm control --reload-rules && sudo udevadm trigger
+   $ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 To check, that the rule is applied correctly, you can execute
 
-.. code-block:: sh
+.. code-block:: console
 
-   ls /dev/fcu* -l
+   $ ls /dev/fcu* -l
 
 And the result should show at least the marked line:
 
-.. code-block:: sh
+.. code-block:: console
    :emphasize-lines: 3
 
    lrwxrwxrwx 1 root root 7 Jun 16 08:13 /dev/fcu_debug -> ttyAMA1

@@ -34,9 +34,9 @@ Spawning HippoCampus
 
 To start Gazebo with one HippoCampus:
 
-.. code-block:: sh
+.. code-block:: console
 
-   roslaunch hippocampus_sim top_single_vehicle_complete.launch
+   $ roslaunch hippocampus_sim top_single_vehicle_complete.launch
 
 
 Path Following example
@@ -54,9 +54,9 @@ Here is the launch file code :file:`top_path_following_example.launch` explained
 
 ... Let's start it!
 
-.. code-block:: sh
+.. code-block:: console
 
-   roslaunch hippocampus_sim top_path_following_example.launch
+   $ roslaunch hippocampus_sim top_path_following_example.launch
 
 Offboard Mode
 =============

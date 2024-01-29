@@ -9,20 +9,20 @@ Install PIGPIO
 Raspbian
 ********
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo apt-get update
+   $ sudo apt-get update && \
    sudo apt-get install pigpio python-pigpio python3-pigpio
 
 Ubuntu
 ******
 
-.. code-block:: sh
+.. code-block:: console
 
-   wget https://github.com/joan2937/pigpio/archive/master.zip
-   unzip master.zip
-   cd pigpio-master
-   make
+   $ wget https://github.com/joan2937/pigpio/archive/master.zip && \
+   unzip master.zip && \
+   cd pigpio-master && \
+   make && \
    sudo make install
 
 Enable The Daemon
@@ -33,7 +33,7 @@ Ubuntu only
 
 You need to create the :file:`pigpiod.service` file at :file:`/etc/systemd/system`.
 
-.. code-block:: sh
+.. code-block:: ini
 
    [Unit]
    Description=Pigpio daemon
@@ -53,12 +53,12 @@ Raspbian and Ubuntu
 
 Enable the service
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo systemctl enable pigpiod.service
+   $ sudo systemctl enable pigpiod.service
 
 and run the service
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo systemctl start pigpiod.service
+   $ sudo systemctl start pigpiod.service

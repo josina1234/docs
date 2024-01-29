@@ -58,10 +58,10 @@ I2C
 Create Workspace
 ================
 
-.. code-block:: sh
+.. code-block:: console
 
-   mkdir -p ~/ros2/src
-   mkdir -p ~/ros2_underlay/src
+   $ mkdir -p ~/ros2/src \
+   && mkdir -p ~/ros2_underlay/src
 
 Concept
 *******

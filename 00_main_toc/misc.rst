@@ -9,34 +9,34 @@ Fix GLX Issues with rviz2
 
 #. Install dependencies
 
-   .. code-block:: sh
+   .. code-block:: console
       
-      sudo apt install libxcb-randr0-dev meson ninja-build byacc flex
+      $ sudo apt install libxcb-randr0-dev meson ninja-build byacc flex
 
 #. Enable source code in **Additional Drivers** and download with
    
-   .. code-block:: sh
+   .. code-block:: console
       
-      apt-get source mesa
+      $ apt-get source mesa
 
 #. Inside the mesa directory execute
 
-   .. code-block:: sh
+   .. code-block:: console
    
-      mkdir build && cd build
+      $ mkdir build && cd build && \
       meson -D glx=xlib -D gallium-drivers=swrast -D platforms=x11 -D dri3=false -D dri-drivers="" -D vulkan-drivers="" -D buildtype=release -D optimization=3
 
    and run
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ninja
+      $ ninja
 
 #. Copy :file:`libgl-xlib` somewhere, e.g. the home directory
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo cp -r src/gallium/targets/libgl-xlib /
+      $ sudo cp -r src/gallium/targets/libgl-xlib /
 
 To run :code:`gazebo` or :code:`rviz`, we need a wrapper. The `x2go Wiki <https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround>`__ proposes two different solutions, where only the latter works for :code:`gazebo` and :code:`rviz`.
 
@@ -61,13 +61,13 @@ Forward Gamepad
 
    .. tab:: F710
 
-      .. code-block:: sh
+      .. code-block:: console
       
-         cat /proc/bus/input/devices | awk '/F710/' RS= | grep -E 'Name=|event[0-9]+'
+         $ cat /proc/bus/input/devices | awk '/F710/' RS= | grep -E 'Name=|event[0-9]+'
 
-      .. code-block:: sh
+      .. code-block:: console
 
-         EVENT_DEVICE='dev/input/event2'
+         $ EVENT_DEVICE='dev/input/event2'
 
       .. asciinema:: /res/asciinema/get_f710_event.cast
          :speed: 1
@@ -80,13 +80,13 @@ Forward Gamepad
 
    .. tab:: Everything
 
-      .. code-block:: sh
+      .. code-block:: console
 
-         cat /proc/bus/input/devices | grep -E 'Name=|event[0-9]+' 
+         $ cat /proc/bus/input/devices | grep -E 'Name=|event[0-9]+' 
 
-      .. code-block:: sh
+      .. code-block:: console
 
-         EVENT_DEVICE='dev/input/event2'
+         $ EVENT_DEVICE='dev/input/event2'
       
       .. asciinema:: /res/asciinema/get_all_event_devices.cast
          :speed: 1
@@ -100,29 +100,29 @@ Forward Gamepad
 
 .. note:: Replace the hostname/IP address of the remote target.
 
-.. code-block:: sh
+.. code-block:: console
 
-   REMOTE_ADDRESS='XXX.XXX.XXX.XXX'
+   $ REMOTE_ADDRESS='XXX.XXX.XXX.XXX'
 
-.. code-block:: sh
+.. code-block:: console
 
-   REMOTE_USER='remote_user_name'
+   $ REMOTE_USER='remote_user_name'
 
-.. code-block:: sh
+.. code-block:: console
 
-   python -u ~/input-over-ssh/input_over_ssh/client.py -p ${EVENT_DEVICE} | ssh ${REMOTE_USER}@${REMOTE_ADDRESS} -t 'bash -c "python3 -u ~/input-over-ssh/input_over_ssh/server.py"'
+   $ python -u ~/input-over-ssh/input_over_ssh/client.py -p ${EVENT_DEVICE} | ssh ${REMOTE_USER}@${REMOTE_ADDRESS} -t 'bash -c "python3 -u ~/input-over-ssh/input_over_ssh/server.py"'
 
 On the remote target you can start the joy node.
 
- .. code-block:: sh
+.. code-block:: console
 
-   ros2 run joy joy_node --ros-args -p device_name:='Logitech Gamepad F710 (via input-over-ssh)'
+   $ ros2 run joy joy_node --ros-args -p device_name:='Logitech Gamepad F710 (via input-over-ssh)'
 
 .. note:: For some reason it takes very long (up to a minute) for the joy node to detect the joystick device.
 
 We can expect the node to publish messages as soon as it ouputs the following line:
 
-.. code-block:: sh
+.. code-block:: console
 
    [INFO] [...] [joy_node]: Opened joystick: Logitech Gamepad F710 (via input-over-ssh).  deadzone: 0.050000
 

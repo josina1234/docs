@@ -8,23 +8,23 @@ Start-Everyting-Check-List
 
 #. **Push Buttons** 
    
-   .. code-block:: sh
+   .. code-block:: console
 
-      ssh pi@buttons-00.local
+      $ ssh pi@buttons-00.local
 
    Replace the vehicle name with the one of the vehicle we are actually using.
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ros2 launch buttons button_1.launch.py vehicle_name:=uuv02
+      $ ros2 launch buttons button_1.launch.py vehicle_name:=uuv02
 
    We can detach the session with :kbd:`F6`, since we do not have to interact with it anymore.
 
 #. **Start the onboard nodes**
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ssh pi@hippo-main-02.local
+      $ ssh pi@hippo-main-02.local
 
    We run at least two nodes: the :code:`esc_commander` and :code:`micro-ros`
 
@@ -40,15 +40,15 @@ Start-Everyting-Check-List
 
    Open a new termianl window with :kbd:`F2` (switch between them with :kbd:`F3` and :kbd:`F4`).
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ros2 run esc esc_commander_node --ros-args -r __ns:=/uuv02 
+      $ ros2 run esc esc_commander_node --ros-args -r __ns:=/uuv02 
 
    Open a new terminal once more and start the debug session for the FCU.
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      screen /dev/fcu_debug 57600
+      $ screen /dev/fcu_debug 57600
 
    We use this session to either reboot the vehicle by entering :code:`reboot` (it does not matter if there are messages popping up while entering this) or to reset the state estimtion by entering :code:`ekf2 stop` and :code:`ekf2 start`.
 
@@ -57,23 +57,23 @@ Start-Everyting-Check-List
 
 #. Launch the Qualisys MoCap-Bridge and replace the vehicle name so it matches our used vehicle.
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ros2 launch qualisys_bridge qualisys_bridge.launch.py vehicle_name:=uuv02
+      $ ros2 launch qualisys_bridge qualisys_bridge.launch.py vehicle_name:=uuv02
 
    .. note:: Make sure to use the correct IP address of the computer running the Qualisys Tracking Manager in the config file inside the :file:`qualisys_bridge` package. Check the address for the network interface, that connect the computer with the local network (not the one used to connect the cameras).
 
 #. Launch the specific setup we want to run, for example 
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ros2 launch hippo_control top_motor_failure_intra_process.launch.py vehicle_name:=uuv02 use_sim_time:=false
+      $ ros2 launch hippo_control top_motor_failure_intra_process.launch.py vehicle_name:=uuv02 use_sim_time:=false
 
    For this specific launch setup also run the following command to set the desired thrust to  non-zero value
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      ros2 topic pub -r 50 /uuv02/thrust_setpoint hippo_msgs/msg/ActuatorSetpoint 'x: 3.0'
+      $ ros2 topic pub -r 50 /uuv02/thrust_setpoint hippo_msgs/msg/ActuatorSetpoint 'x: 3.0'
 
 #. Use the the green and red push button to arm/disarm the vehicle.
 

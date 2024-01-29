@@ -10,9 +10,9 @@ If PX4 is used in combination with the onboard computer, make sure the firmware 
 
 A tested PX4-Version is the commit :code:`45b390b0bf`.
 
-.. code-block:: sh
+.. code-block:: console
 
-   git clone https://github.com/PX4/PX4-Autopilot.git \
+   $ git clone https://github.com/PX4/PX4-Autopilot.git \
    && cd PX4-Autopilot \
    && git checkout 45b390b0bf \
    && git submodule update --init --recursive
@@ -78,9 +78,9 @@ Build the firmware
 
 Normally, the :code:`microdds_client` is started automatically, and no further actions are required. Anyhow, to manually start the :code:`microdds_client`, go to the :code:`nsh` terminal and run
 
-.. code-block:: sh
+.. code-block:: console
 
-   microdds_client start -t serial -d /dev/ttyS2 -b 921600 -n uuv00
+   $ microdds_client start -t serial -d /dev/ttyS2 -b 921600 -n uuv00
 
 
 Configure the Firmware
@@ -103,9 +103,9 @@ A commit that is tested to be working with the above-mentioned version of PX4 is
 
 Clone it into the ROS workspace
 
-.. code-block:: sh
+.. code-block:: console
 
-   git clone https://github.com/PX4/px4_msgs.git \
+   $ git clone https://github.com/PX4/px4_msgs.git \
    && cd px4_msgs \
    && checkout 8a7f3da
 
@@ -114,9 +114,9 @@ Install Micro-XRCE-DDS-Agent
 
 Clone and build the agent
 
-.. code-block:: sh
+.. code-block:: console
 
-   cd ~/ros2_underlay/src \
+   $ cd ~/ros2_underlay/src \
    && git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git \
    && build_underlay
 
@@ -125,9 +125,9 @@ Running the Micro-XRCE-DDS-Agent
 
 Replace device and baudrate with the correct values.
 
-.. code-block:: sh
+.. code-block:: console
 
-   MicroXRCEAgent serial --dev /dev/fcu_data -b 921600
+   $ MicroXRCEAgent serial --dev /dev/fcu_data -b 921600
 
 If the setup is working, :code:`ros2 topic list` should show the FMUs in and out topics.
 
@@ -161,9 +161,9 @@ MAVLink Router
 
 Nice to use QGroundcontrol for settings parameters and calibrating sensors. Otherwise, QGC will be probably not used at all.
 
-.. code-block:: sh
+.. code-block:: console
 
-   git clone https://github.com/mavlink-router/mavlink-router.git \
+   $ git clone https://github.com/mavlink-router/mavlink-router.git \
    && cd mavlink-router \
    && git checkout 3b48da1
 
@@ -192,8 +192,8 @@ You can add or change the UDP endpoint to match your requirements.
 
 Run the router via
 
-.. code-block:: sh
+.. code-block:: console
 
-   mavlink-routerd
+   $ mavlink-routerd
 
 Maybe one needs to add a connection manually in QGroundControl (Application settings -> comm links).

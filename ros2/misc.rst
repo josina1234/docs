@@ -7,22 +7,22 @@ Build Command
 Symlink builds are recommended, so symbolic links to :file:`src` are used where possible. 
 
 
-.. code-block:: sh
+.. code-block:: console
    
-   colcon build --symlink-install
+   $ colcon build --symlink-install
 
 In case :file:`compile_commands.json` is needed for parsing/autocompletion
 
-.. code-block:: sh
+.. code-block:: console
 
-   colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+   $ colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 .. attention:: 
    If one likes to source the custom workspace in :file:`.zshrc`, make sure you do **not** use this environment to build the workspace. Instead run the build command in — for example — :code:`bash`, where you only source workspaces outside the workspace you want to build! To avoid inheriting environment variables you can run :code:`env -i bash` or for a docker setup run
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      docker exec -it ros2 bash
+      $ docker exec -it ros2 bash
 
 .. hint:: 
    On a native Ubuntu installation, aliases for building the ROS workspaces are quite handy.
@@ -38,9 +38,9 @@ In case :file:`compile_commands.json` is needed for parsing/autocompletion
 Installing Dependencies
 ***********************
 
-.. code-block:: sh
+.. code-block:: console
 
-   rosdep install --from-paths src -y --ignore-src
+   $ rosdep install --from-paths src -y --ignore-src
 
 
 Auto-Complete
@@ -61,6 +61,6 @@ Auto-Complete
 Verifying XACRO
 ***************
 
-.. code-block:: sh
+.. code-block:: console
 
-   check_urdf <(xacro path/to/your/file.xacro)
+   $ check_urdf <(xacro path/to/your/file.xacro)

@@ -17,14 +17,14 @@ Generate Parameter Files
 
 To either select the tags, that should be detected, or create a tag bundle configuration, run
 
-.. code-block:: sh
+.. code-block:: console
 
-   ros2 run hippo_sim generate_tag_poses.py --out-dir `pwd`
+   $ ros2 run hippo_sim generate_tag_poses.py --out-dir `pwd`
 
 to create the corresponding files in the current directory.
 
 To show the list of available arguments run
 
-.. code-block:: sh
+.. code-block:: console
 
-   ros2 run hippo_sim generate_tag_poses.py -h
+   $ ros2 run hippo_sim generate_tag_poses.py -h

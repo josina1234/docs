@@ -28,7 +28,7 @@ Streaming
 Save to File
 ============
 
-.. code-block:: sh
+.. code-block:: console
 
-   gst-launch-1.0 rtspsrc location=rtsp://${IP_CAMERA_ADDRESS}:554/11 buffer-mode=auto ! queue ! rtph265depay ! h265parse ! mp4mux ! filesink location=test.mp4 -e
+   $ gst-launch-1.0 rtspsrc location=rtsp://${IP_CAMERA_ADDRESS}:554/11 buffer-mode=auto ! queue ! rtph265depay ! h265parse ! mp4mux ! filesink location=test.mp4 -e
 

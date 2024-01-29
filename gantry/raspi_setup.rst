@@ -33,9 +33,9 @@ To simplify things you can add UDEV rules.
 
 Executing 
 
-.. code-block:: sh
+.. code-block:: console
 
-   udevadm info --name=/dev/ttyAMA2 --attribute-walk
+   $ udevadm info --name=/dev/ttyAMA2 --attribute-walk
 
 produces the following output:
 
@@ -108,15 +108,15 @@ The resulting UDEV rule in :file:`/etc/udev/rules.d/50-serial.rules` is:
 
 You can apply these changes by
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo udevadm control --reload-rules && sudo udevadm trigger
+   $ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 To check, that the rule is applied correctly, you can execute
 
-.. code-block:: sh
+.. code-block:: console
 
-   ls /dev/motor* -l 
+   $ ls /dev/motor* -l 
 
 The output should show symbolic links for the three motor axes.
 

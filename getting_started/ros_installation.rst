@@ -7,31 +7,31 @@ Preparation
 
 #. Make sure you have a UTF-8 supported locale with
    
-   .. code-block:: sh
+   .. code-block:: console
       
-      locale
+      $ locale
    
    If not, refer to the `ROS documentation <https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html#set-locale>`__.
 
 #. Enable universe repository
    
-   .. code-block:: sh
+   .. code-block:: console
       
-      sudo apt install software-properties-common
-      sudo add-apt-repository universe
+      $ sudo apt install software-properties-common \
+      && sudo add-apt-repository universe
 
 #. Add the key
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt update && sudo apt install curl -y
-      sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+      $ sudo apt update && sudo apt install curl -y \
+      && sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 #. Add sources
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+      $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 
 
@@ -41,9 +41,9 @@ Preparation
    .. warning:: This is critial!
    
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt update && sudo apt upgrade -y
+      $ sudo apt update && sudo apt upgrade -y
 
 Installation
 ============
@@ -64,19 +64,19 @@ Installation
 
 #. Install development tools
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt install ros-dev-tools python3-pip
+      $ sudo apt install ros-dev-tools python3-pip
 
 rosdep Initialization
 =====================
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo apt install python3-rosdep
+   $ sudo apt install python3-rosdep
 
-.. code-block:: sh
+.. code-block:: console
 
-   sudo rosdep init && rosdep update
+   $ sudo rosdep init && rosdep update
 
 .. note:: Do **not** execute :code:`rosdep update` with root privileges. This would lead to permission issues.

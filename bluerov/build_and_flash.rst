@@ -6,15 +6,15 @@ Build The Firmware
 
 We replaced the original FCU with the Pixhawk4, which is a 5th generation board. So the build command is:
 
-.. code-block:: sh
+.. code-block:: console
 
-   make px4_fmu-v5_default
+   $ make px4_fmu-v5_default
 
 If you get an error message that tells you, the :code:`gcc-arm-none-eabi` could not be found, make sure you have installed it (for example via the :file:`Tools/setup/ubuntu.sh` convenience script). In some cases, the path is not correctly extended, so it might be necessary to copy the line similiar to
 
-.. code-block:: sh
+.. code-block:: console
 
-   export PATH=/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH
+   $ export PATH=/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH
 
 from :file:`~/.profile` to :file:`~/.bashrc` (or in case you use :code:`zsh` to :file:`~/.zshrc`).
 
