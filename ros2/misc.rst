@@ -30,7 +30,7 @@ In case :file:`compile_commands.json` is needed for parsing/autocompletion
    .. code:: sh
 
       alias build_ros="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'"
-      alias build_underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/humble/setup.bash && cd $HOME/ros2_underlay && colcon build'"
+      alias build_underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd $HOME/ros2_underlay && colcon build'"
 
    The development workspace and the underlay can be built from any directory with the commands :code:`build_ros` and :code:`build_underlay`, respectively.
 

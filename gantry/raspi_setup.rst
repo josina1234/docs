@@ -10,7 +10,7 @@ Requirements
 
 * Ubuntu 22.04 Server image installed on Raspberry Pi
 
-* A ROS installation, no GUI dependencies, so the :code:`ros-humble-ros-base` would suffice.
+* A ROS installation, no GUI dependencies, so the :code:`ros-iron-ros-base` would suffice.
 
 Enable UART
 ===========

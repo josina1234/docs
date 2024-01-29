@@ -11,7 +11,7 @@ Preparation
       
       locale
    
-   If not, refer to the `ROS documentation <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html#set-locale>`__.
+   If not, refer to the `ROS documentation <https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html#set-locale>`__.
 
 #. Enable universe repository
    
@@ -48,7 +48,7 @@ Preparation
 Installation
 ============
 
-.. note:: Choose the installation option depending on your needs. Probably it's **not** reasonable to install :code:`ros-humble-desktop-full` on an Ubuntu server image for the Raspberry Pi.
+.. note:: Choose the installation option depending on your needs. Probably it's **not** reasonable to install :code:`ros-iron-desktop-full` on an Ubuntu server image for the Raspberry Pi.
 
 #. Install ROS
 
