@@ -26,25 +26,11 @@ Start-Everyting-Check-List
 
       $ ssh pi@hippo-main-02.local
 
-   We run at least two nodes: the :code:`esc_commander` and :code:`micro-ros`
-
-   .. tabs::
-
-      .. code-tab:: sh MicroXRCE
-
-         MicroXRCEAgent serial --dev /dev/fcu_data -b 921600
-      
-      .. code-tab:: sh micro-ros
-
-         ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/fcu_data -b 921600
-
-   Open a new termianl window with :kbd:`F2` (switch between them with :kbd:`F3` and :kbd:`F4`).
-
    .. code-block:: console
 
-      $ ros2 run esc esc_commander_node --ros-args -r __ns:=/uuv02 
+      $ ros2 launch hardware hippo.launch.py vehicle_name:=uuv02
 
-   Open a new terminal once more and start the debug session for the FCU.
+   Open a new terminal with :kbd:`F2` more and start the debug session for the FCU.
 
    .. code-block:: console
 
@@ -67,13 +53,19 @@ Start-Everyting-Check-List
 
    .. code-block:: console
 
+      $ ros2 launch hippo_common top_lemniscate_offboard.launch.py vehicle_name:=uuv02 use_sim_time:=false
+   
+   or
+
+   .. code-block:: console
+
       $ ros2 launch hippo_control top_motor_failure_intra_process.launch.py vehicle_name:=uuv02 use_sim_time:=false
 
    For this specific launch setup also run the following command to set the desired thrust to  non-zero value
 
    .. code-block:: console
 
-      $ ros2 topic pub -r 50 /uuv02/thrust_setpoint hippo_msgs/msg/ActuatorSetpoint 'x: 3.0'
+      $ ros2 topic pub -r 50 /uuv02/thrust_setpoint hippo_msgs/msg/ActuatorSetpoint 'x: 0.3'
 
 #. Use the the green and red push button to arm/disarm the vehicle.
 
