@@ -38,6 +38,40 @@ Build
 
    $ build_underlay
 
+Repower USB
+***********
+
+After booting the camera is often not found.
+Switching off and on again fixes the problem.
+
+This can be done with `uhubctl <https://github.com/mvp/uhubctl>`__.
+
+Installation
+   .. code-block:: console
+
+      $ git clone https://github.com/mvp/uhubctl.git \
+      && cd uhubctl \
+      && make \
+      && sudo make install
+
+
+Off
+   .. code-block:: console
+
+      $ sudo uhubctl -l 2 -a 0
+On
+   .. code-block:: console
+
+      $ sudo uhubctl -l 2 -a 1
+   
+Laucnh
+******
+
+.. code-block:: console
+
+   $ ros2 launch libcaer_driver driver_node.launch.py device_type:=dvxplorer
+
+
 
 Renderer
 ========
