@@ -64,7 +64,7 @@ On
 
       $ sudo uhubctl -l 2 -a 1
    
-Laucnh
+Launch
 ******
 
 .. code-block:: console
@@ -85,17 +85,12 @@ Define the workspace path
 
    $ WS_DIR="$HOME/ros2_underlay/src"
 
-go to the workspace
+go to the workspace and clone the repository and its dependencies
 
 .. code-block:: console
 
-   $ cd $WS_DIR
-
-clone the repository and its dependencies
-
-.. code-block:: console
-
-   $ git clone https://github.com/ros-event-camera/event_camera_renderer.git \
+   $ cd $WS_DIR \
+   && git clone https://github.com/ros-event-camera/event_camera_renderer.git \
    && vcs import < event_camera_renderer/event_camera_renderer.repos
 
 Install the remaining dependencies
@@ -109,3 +104,13 @@ Build
 .. code-block:: console
 
    $ build_underlay
+
+Launch
+******
+
+.. code-block:: console
+
+   $ ros2 launch event_camera_renderer renderer.launch.py camera:=uuv02/event_camera
+
+
+
