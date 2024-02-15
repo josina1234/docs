@@ -19,6 +19,27 @@ The Bag Files
 
 The vehicle name used in our set up is ``uuv02``, hence all vehicle related topic names are prefixed with ``uuv02``.
 
+Converting ``mcap`` to ``sqlite3``
+**********************************
+
+Create a a ``yaml`` file
+
+.. code-block:: yaml
+   :caption: output.yaml
+   :linenos:
+
+   output_bags:
+     - uri: <output_name>
+       storage_id: sqlite3
+       all: true
+
+and run 
+
+.. code-block:: console
+
+   $ ros2 bag convert -i <BAGFILE_IN_MCAP_FORMAT> -o output.yaml
+
+
 With Gantry
 ***********
 
