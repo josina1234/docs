@@ -8,3 +8,4 @@ BlueROV
    /bluerov/deploy
    /bluerov/build_and_flash
    /bluerov/servo_and_light
+   /bluerov/alpha_arm
