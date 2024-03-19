@@ -81,4 +81,4 @@ favicons = [
     "hippo.svg",
 ]
 
-copybutton_exclude = '.linenos, .gp'
+copybutton_exclude = '.linenos, .gp, .go'
