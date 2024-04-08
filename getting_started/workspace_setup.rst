@@ -33,7 +33,7 @@ PX4-msg
 
 Either 
 
-* install prebuilt package
+* install prebuilt package (**recommended**)
 
    .. tabs::
 
@@ -64,16 +64,6 @@ or
 
 AprilTag-ROS
 ************
-.. There is a `PR <https://github.com/AprilRobotics/apriltag_ros/pull/114>`__ for porting the good old :code:`apriltag_ros` package to ROS2. 
-
-.. .. code:: sh
-
-..    cd ~/ros2_underlay/src && \
-..    git clone --depth 1 --branch ros2-port https://github.com/wep21/apriltag_ros.git
-
-.. .. note::
-   
-..    There is an alternative `package <https://github.com/christianrauch/apriltag_ros>`__ by Christian Rauch, that works somewhat different but has a simpler code base. Unfortunately it does not support tag bundles.
 
 We currently use a slightly adapted version of the ROS2 port of the :code:`apriltag_ros` package by `Christian Rauch <https://github.com/christianrauch/apriltag_ros>`__.
 
@@ -84,25 +74,16 @@ Download our version:
    .. code-tab:: sh ssh
 
       cd ~/ros2_underlay/src \
-      && git clone git@github.com:HippoCampusRobotics/apriltag_ros.git
+      && git clone -b hippo git@github.com:HippoCampusRobotics/apriltag_ros.git
 
    .. code-tab:: sh https
       
       cd ~/ros2_underlay/src \
-      && git clone https://github.com/HippoCampusRobotics/apriltag_ros.git
+      && git clone -b hippo https://github.com/HippoCampusRobotics/apriltag_ros.git
 
 
 PlotJugger
 **********
-
-.. .. note:: The packaged built of PlotJuggler seems to crash if loading a layout with a split. Building from source seems to fix the issue.
-
-.. .. code:: sh
-
-..    cd ~/ros2_underlay/src && \
-..    git clone https://github.com/PlotJuggler/plotjuggler_msgs.git && \
-..    git clone --depth 1 --branch 1.7.3 https://github.com/PlotJuggler/plotjuggler-ros-plugins.git && \
-..    git clone --depth 1 --branch 3.7.1 https://github.com/facontidavide/PlotJuggler.git
 
 PlotJuggler is a very convenient plotting tool. 
 Using ROS Iron, the normal release version should work just fine:
@@ -124,8 +105,11 @@ Since this is very tedious, we define some aliases. Put these two lines into you
    echo "alias build_ros=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source \$HOME/ros2_underlay/install/setup.bash && cd \$HOME/ros2 && colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'\"" >> ~/.zshrc
    echo "alias build_underlay=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd \$HOME/ros2_underlay && colcon build'\"" >> ~/.zshrc
    source ~/.zshrc
+   alias rosdep-ros2="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && rosdep install --from-paths src -y --ignore-src'"
+   alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"
 
-Make sure to source the :file:`.zshrc` in your terminal when you make changes. 
+.. important::
+   Make sure to source the :file:`.zshrc` in your terminal each time you make changes. 
 
 Underlay Workspace
 ******************
@@ -135,9 +119,7 @@ But first, let's check for unresolved dependencies.
 
 .. code:: sh
 
-   cd ~/ros2_underlay \
-   && source /opt/ros/iron/setup.zsh \
-   && rosdep install --from-paths src -y --ignore-src
+   rosdep-underlay
 
 And to build:
 
@@ -192,7 +174,8 @@ These packages have some more dependencies. Let's resolve them by executing
 
 .. code:: sh
 
-   cd ~/ros2 && rosdep install --from-paths src -y --ignore-src
+   rosdep-ros2
+
 
 Make sure that the underlay workspace containing external packages is sourced for this.
 
