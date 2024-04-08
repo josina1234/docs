@@ -1,7 +1,10 @@
 PX4 Setup
 #########
 
-.. note:: PX4 is currently used for the real robot exclusively and is not part of the simulation. Skip this section if you are not preparing for the lab experiments.
+.. note::
+   PX4 is currently used for the real robot exclusively and is not part of the simulation.
+   Skip this section if you are **not** preparing for the lab experiments.
+   If in doubt ask your supervisor.
 
 Building the Firmware
 =====================
