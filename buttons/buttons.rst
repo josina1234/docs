@@ -6,9 +6,9 @@ Buttons
 Basic Function
 ==============
 
-.. todo::
+.. figure:: /res/images/buttons.jpg
 
-   Add an image of the buttons
+   Buttons (left) for arming (green) and disarming (red) and indicator lights on the right.
 
 While operating a real vehicle it is quit nice to have some buttons to easily control the vehicle.
 This includes, for example, arming and disarming (probably the most important and most used feature) the vehicle quickly switch between different modes of operation or rebooting the FCU.
@@ -22,10 +22,6 @@ Therefore there is no need to modify anything in the buttons package.
 
 Additional Functions
 ====================
-
-.. todo::
-
-   Add an image of the LED indicator.
 
 Unlike the same of the package suggests, the package has additional functions.
 It can control a WS2812 LED strip as indicator lights to display the arming state, the battery level, and the general health state of the button module.
