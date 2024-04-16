@@ -8,4 +8,5 @@ Concepts
    :caption: Contents:
    
    /concepts/ros2_workspace
+   /concepts/colcon
    /concepts/ros2_repositories
