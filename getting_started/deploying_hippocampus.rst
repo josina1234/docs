@@ -67,6 +67,8 @@ Start-Everyting-Check-List
 
 #. Use the the green and red push button to arm/disarm the vehicle.
 
+   .. seealso:: :ref:`sec-buttons`
+
 .. attention:: Always keep an eye on the battery level. There is a indicator light connected to the Raspberry Pi controlloing the buttons. Besides, the `esc_commander` node also publishes the battery voltage measured by the ESCs under :file:`/uuv02/battery_voltage`. Make sure to **not** discharge the battery below 3.5V (it is okay to have short voltage drops under heavy load until 3.3V) per cell. Otherwise tell Lennart and/or Nathalie about it.
 
 Shutting-Down-Check-List
