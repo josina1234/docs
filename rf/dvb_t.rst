@@ -17,11 +17,30 @@ Firmware Installation
    sudo make install
    sudo ldconfig
 
+Install Python Wrapper
 
+.. code-block:: sh
 
-Blacklisting the :code:`dvb_usb_rtl28xxu` module
-------------------------------------------------
+   pip install pyrtlsdr pyrtlsdrlib
 
+Fix Access Error
+================
+
+If you try to use the DVB-T stick using pyrtlsdr, for example using
+
+.. code-block:: sh
+
+   ros2 launch sdr sdr.launch.py
+
+You might get the following error message:
+
+.. code-block:: sh
+
+   [sdr_node.py-1]     raise LibUSBError(result, 'Could not open SDR (device index = %d)' % (device_index))
+   [sdr_node.py-1] rtlsdr.rtlsdr.LibUSBError: <LIBUSB_ERROR_ACCESS (-3): Access denied (insufficient permissions)> "Could not open SDR (device index = 0)"
+   [ERROR] [sdr_node.py-1]: process has died [pid 59289, exit code 1, cmd '/home/nathalie/ros2/install/sdr/lib/sdr/sdr_node.py --ros-args'].
+
+Blacklisting the :code:`dvb_usb_rtl28xxu` module fixes this.
 Add the following to :file:`etc/modprobe.d/blacklist.conf` (will need root access)
 
 .. code-block:: sh
@@ -29,3 +48,5 @@ Add the following to :file:`etc/modprobe.d/blacklist.conf` (will need root acces
    blacklist dvb_usb_rtl28xxu
    blacklist rtl2832
    blacklist rtl2830
+
+You will need to reboot.
