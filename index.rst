@@ -19,6 +19,7 @@ Welcome to HippoCampusDocs's documentation!
    00_main_toc/time_synchronization
    00_main_toc/hippocampus_hardware
    00_main_toc/bluerov
+   00_main_toc/buttons
    00_main_toc/gantry
    00_main_toc/qualisys
    00_main_toc/cameras
