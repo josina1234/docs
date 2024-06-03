@@ -37,6 +37,10 @@ Either
 
    .. tabs::
 
+      .. group-tab:: Jazzy
+
+         * :download:`amd64 </res/misc/ros-jazzy-px4_msgs_2.0.1-0noble_amd64.deb>`
+
       .. group-tab:: Iron
          
          * :download:`amd64 </res/misc/ros-iron-px4-msgs_2.0.1-0jammy_amd64.deb>`
