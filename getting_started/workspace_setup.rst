@@ -28,8 +28,8 @@ Getting the external packages
 
 We will need the following external packages that we will put into :file:`ros2_underlay`:
 
-PX4-msg
-*******
+PX4-msgs
+********
 
 Either 
 
@@ -39,7 +39,7 @@ Either
 
       .. group-tab:: Jazzy
 
-         * :download:`amd64 </res/misc/ros-jazzy-px4_msgs_2.0.1-0noble_amd64.deb>`
+         * :download:`amd64 </res/misc/ros-jazzy-px4-msgs_2.0.1-0noble_amd64.deb>`
 
       .. group-tab:: Iron
          
