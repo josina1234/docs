@@ -17,10 +17,10 @@ In :file:`ros2`, we will keep all of our own packages.
 
 To create this directory structure, execute:
 
-.. code-block:: sh
+.. code-block:: console
 
-   mkdir -p ~/ros2/src
-   mkdir -p ~/ros2_underlay/src
+   $ mkdir -p ~/ros2/src
+   $ mkdir -p ~/ros2_underlay/src
 
 
 Getting the external packages
@@ -59,9 +59,9 @@ or
 
    .. important:: See :ref:`getting_started/px4_setup:PX4 Setup` for a tested commit of the repository.
 
-   .. code:: sh
+   .. code:: console
 
-      cd ~/ros2_underlay/src && \
+      $ cd ~/ros2_underlay/src && \
       git clone https://github.com/PX4/px4_msgs.git && \
       cd px4_msgs && \
       git checkout 8a7f3da
@@ -75,14 +75,14 @@ Download our version:
 
 .. tabs::
 
-   .. code-tab:: sh ssh
+   .. code-tab:: console ssh
 
-      cd ~/ros2_underlay/src \
+      $ cd ~/ros2_underlay/src \
       && git clone -b hippo git@github.com:HippoCampusRobotics/apriltag_ros.git
 
-   .. code-tab:: sh https
+   .. code-tab:: console https
       
-      cd ~/ros2_underlay/src \
+      $ cd ~/ros2_underlay/src \
       && git clone -b hippo https://github.com/HippoCampusRobotics/apriltag_ros.git
 
 
@@ -92,9 +92,9 @@ PlotJugger
 PlotJuggler is a very convenient plotting tool. 
 Using ROS Iron, the normal release version should work just fine:
 
-.. code:: sh
+.. code:: console
 
-   sudo apt install ros-${ROS_DISTRO}-plotjuggler
+   $ sudo apt install ros-${ROS_DISTRO}-plotjuggler
 
 
 Building the Workspaces
@@ -121,31 +121,31 @@ Underlay Workspace
 We can now build the first "under"layed workspace :file:`ros2_underlay`.
 But first, let's check for unresolved dependencies.
 
-.. code:: sh
+.. code:: console
 
-   rosdep-underlay
+   $ rosdep-underlay
 
 And to build:
 
-.. code:: sh
+.. code:: console
 
-   build_underlay
+   $ build_underlay
 
 Note that you do not have to be inside the respective workspace directory to build by executing the defined alias. Very convenient!
 
 Add sourcing the ROS installation in your :code:`.zshrc`
 
-.. code:: sh
+.. code:: console
 
-   echo 'source /opt/ros/iron/setup.zsh' >> ~/.zshrc && \
-   source ~/.zshrc
+   $ echo 'source /opt/ros/iron/setup.zsh' >> ~/.zshrc && \
+   $ source ~/.zshrc
 
 After a successful build, we can source this workspace in the :file:`.zshrc`, so that our main, overlayed workspace will find it.
 
-.. code:: sh
+.. code:: console
 
-   echo 'source $HOME/ros2_underlay/install/setup.zsh' >> ~/.zshrc && \
-   source ~/.zshrc
+   $ echo 'source $HOME/ros2_underlay/install/setup.zsh' >> ~/.zshrc && \
+   $ source ~/.zshrc
 
 Main Workspace
 **************
@@ -157,18 +157,18 @@ Core packages
 
 .. tabs::
 
-   .. code-tab:: sh ssh
+   .. code-tab:: console ssh
 
-      cd ~/ros2/src \
+      $ cd ~/ros2/src \
       && git clone --recursive git@github.com:HippoCampusRobotics/hippo_core.git \
       && git clone git@github.com:HippoCampusRobotics/hippo_control_msgs.git \
       && git clone git@github.com:HippoCampusRobotics/hippo_simulation.git \
       && git clone git@github.com:HippoCampusRobotics/state_estimation.git \
       && git clone git@github.com:HippoCampusRobotics/visual_localization.git
 
-   .. code-tab:: sh https
+   .. code-tab:: console https
       
-      cd ~/ros2/src \
+      $ cd ~/ros2/src \
       && git clone --recursive https://github.com/HippoCampusRobotics/hippo_core.git \
       && git clone https://github.com/HippoCampusRobotics/hippo_control_msgs.git \
       && git clone https://github.com/HippoCampusRobotics/hippo_simulation.git \
@@ -180,59 +180,38 @@ DVL
 
 .. tabs::
 
-   .. code-tab:: sh ssh
+   .. code-tab:: console ssh
 
-      cd ~/ros2/src \
+      $ cd ~/ros2/src \
       && git clone git@github.com:HippoCampusRobotics/dvl.git \
       && git clone git@github.com:HippoCampusRobotics/dvl_msgs.git 
 
-   .. code-tab:: sh ssh
+   .. code-tab:: console ssh
 
-      cd ~/ros2/src \
+      $ cd ~/ros2/src \
       && git clone https://github.com/HippoCampusRobotics/dvl.git \
       && git clone https://github.com/HippoCampusRobotics/dvl_msgs.git
 
-
-Gantry
-######
-
-.. tabs::
-
-   .. code-tab:: sh ssh
-
-      cd ~/ros2/src \
-      && git clone git@github.com:HippoCampusRobotics/gantry.git \
-      && git clone git@github.com:HippoCampusRobotics/gantry_msgs.git \
-      && git clone git@github.com:HippoCampusRobotics/gantry_gui.git
-
-   .. code-tab:: sh ssh
-
-      cd ~/ros2/src \
-      && git clone https://github.com/HippoCampusRobotics/gantry.git \
-      && git clone https://github.com/HippoCampusRobotics/gantry_msgs.git \
-      && git clone https://github.com/HippoCampusRobotics/gantry_gui.git
-
-
 These packages have some more dependencies. Let's resolve them by executing
 
-.. code:: sh
+.. code:: console
 
-   rosdep-ros2
+   $ rosdep-ros2
 
 
 Make sure that the underlay workspace containing external packages is sourced for this.
 
 Then, we can build this workspace using our defined alias.
 
-.. code:: sh
+.. code:: console
 
-   build_ros
+   $ build_ros
 
 Now, source this workspace in your :file:`.zshrc`, too, using the local setup this time:
 
-.. code:: sh
+.. code:: console
 
-   echo 'source $HOME/ros2/install/local_setup.zsh' >> ~/.zshrc
+   $ echo 'source $HOME/ros2/install/local_setup.zsh' >> ~/.zshrc
 
 Note that since this workspace overlays the :file:`ros2_underlay` workspace, this setup file needs to be sourced afterwards.
 
@@ -242,11 +221,10 @@ Auto-Complete
 
 ROS2 command line tools do not autocomplete as of this `GitHub Issue <https://github.com/ros2/ros2cli/issues/534>`_. While this issue has since been closed, the problem still occurs. To fix this
 
-.. code-block::
-   :name: test
+.. code-block:: console
    
-   echo "eval \"\$(register-python-argcomplete3 ros2)\"" >> ~/.zshrc
-   echo "eval \"\$(register-python-argcomplete3 colcon)\"" >> ~/.zshrc
+   $ echo "eval \"\$(register-python-argcomplete3 ros2)\"" >> ~/.zshrc
+   $ echo "eval \"\$(register-python-argcomplete3 colcon)\"" >> ~/.zshrc
 
 Auto-completing topic names seems to work only after an execution of `ros2 topic list`. Before the auto-complete gets stuck and has to be canceled by :kbd:`Ctrl` + :kbd:`C`.
 
