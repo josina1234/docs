@@ -94,7 +94,7 @@ Using ROS Iron, the normal release version should work just fine:
 
 .. code:: sh
 
-   sudo apt install ros-iron-plotjuggler
+   sudo apt install ros-${ROS_DISTRO}-plotjuggler
 
 
 Building the Workspaces
@@ -152,12 +152,16 @@ Main Workspace
 
 Now, we can build our main workspace. Let's get our packages:
 
+Core packages
+#############
+
 .. tabs::
 
    .. code-tab:: sh ssh
 
       cd ~/ros2/src \
       && git clone --recursive git@github.com:HippoCampusRobotics/hippo_core.git \
+      && git clone git@github.com:HippoCampusRobotics/hippo_control_msgs.git \
       && git clone git@github.com:HippoCampusRobotics/hippo_simulation.git \
       && git clone git@github.com:HippoCampusRobotics/state_estimation.git \
       && git clone git@github.com:HippoCampusRobotics/visual_localization.git
@@ -166,13 +170,48 @@ Now, we can build our main workspace. Let's get our packages:
       
       cd ~/ros2/src \
       && git clone --recursive https://github.com/HippoCampusRobotics/hippo_core.git \
+      && git clone https://github.com/HippoCampusRobotics/hippo_control_msgs.git \
       && git clone https://github.com/HippoCampusRobotics/hippo_simulation.git \
       && git clone https://github.com/HippoCampusRobotics/state_estimation.git \
       && git clone https://github.com/HippoCampusRobotics/visual_localization.git
 
-.. todo:: 
+DVL
+###
 
-   Add any other relevant packages as we continue our move to ROS2.
+.. tabs::
+
+   .. code-tab:: sh ssh
+
+      cd ~/ros2/src \
+      && git clone git@github.com:HippoCampusRobotics/dvl.git \
+      && git clone git@github.com:HippoCampusRobotics/dvl_msgs.git 
+
+   .. code-tab:: sh ssh
+
+      cd ~/ros2/src \
+      && git clone https://github.com/HippoCampusRobotics/dvl.git \
+      && git clone https://github.com/HippoCampusRobotics/dvl_msgs.git
+
+
+Gantry
+######
+
+.. tabs::
+
+   .. code-tab:: sh ssh
+
+      cd ~/ros2/src \
+      && git clone git@github.com:HippoCampusRobotics/gantry.git \
+      && git clone git@github.com:HippoCampusRobotics/gantry_msgs.git \
+      && git clone git@github.com:HippoCampusRobotics/gantry_gui.git
+
+   .. code-tab:: sh ssh
+
+      cd ~/ros2/src \
+      && git clone https://github.com/HippoCampusRobotics/gantry.git \
+      && git clone https://github.com/HippoCampusRobotics/gantry_msgs.git \
+      && git clone https://github.com/HippoCampusRobotics/gantry_gui.git
+
 
 These packages have some more dependencies. Let's resolve them by executing
 
