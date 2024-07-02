@@ -5,27 +5,27 @@ Some ROS nodes are required to be running on the on-board Pis for all typical de
 This mainly refers to nodes representing hardware interfaces.
 We use ``systemd`` for starting these nodes.
 
-In many cases no manual interaction with the Raspberry Pis inside the vehicles is required. 
+.. note::
+
+   In many cases no manual interaction with the Raspberry Pis inside the vehicles is required, since all required nodes are started automatically at boot.
 
 Where can I find the services that are starting the nodes?
 ==========================================================
 
-The files are in :file:`~/.config/systemd/user/`
+The files are in :file:`/etc/systemd/system/`
 
 .. code-block:: console
 
-   $ tree ~/.config/systemd/user
+   $ tree /etc/systemd/system
    
-   ~/.config/systemd/user
-   ├── default.target.wants
-   │   └── ...
+   /etc/systemd/system/
+   ├── ...
    ├── ros-camera.service
    ├── ros-camera-servo.service
    ├── ros-dvl.service
    ├── ros-esc.service
    ├── ros-spotlight.service
    ├── ros-startup-sequence.service
-   ├── ros-wait-for-pigpiod.service
    ├── ros-xrce-agent.service
    ├── tmux-main.service
    └── tmux-monitoring.service
@@ -40,23 +40,23 @@ The respective service's status can be checked via (in this example for ``ros-es
 
 .. code-block:: console
 
-   $ systemctl --user status ros-esc.service
+   $ systemctl status ros-esc.service
    ● ros-esc.service - ESC Commander
-        Loaded: loaded (/home/pi/.config/systemd/user/ros-esc.service; enabled; vendor preset: enabled)
-        Active: active (running) since Wed 2024-06-26 13:29:55 CEST; 1h 25min ago
-      Main PID: 1017 (ros2)
+        Loaded: loaded (/etc/systemd/system/ros-esc.service; enabled; vendor preset: enabled)
+        Active: active (running) since Tue 2024-07-02 10:07:11 CEST; 19min ago
+      Main PID: 669 (ros2)
          Tasks: 17 (limit: 9244)
-        Memory: 45.2M
-           CPU: 35.537s
-        CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/ros-esc.service
-                ├─1017 /usr/bin/python3 /opt/ros/iron/bin/ros2 launch esc teensy_esc.launch.py vehicle_name:=bluerov01 use_sim_time:=false
-                └─2075 /home/pi/ros2/install/esc/lib/esc/teensy_commander_node --ros-args -r __node:=esc_commander -r __ns:=/bluerov01 --params-file /tmp/launch_params_7liomyxq --params-file /home/pi/ros2/install/esc/share/esc/config/teensy_config.yaml
+        Memory: 43.0M
+           CPU: 11.888s
+        CGroup: /system.slice/ros-esc.service
+                ├─ 669 /usr/bin/python3 /opt/ros/iron/bin/ros2 launch esc teensy_esc.launch.py vehicle_name:=bluerov01 use_sim_time:=false
+                └─1798 /home/pi/ros2/install/esc/lib/esc/teensy_commander_node --ros-args -r __node:=esc_commander -r __ns:=/bluerov01 --params-file /tmp/launch_params_9m7zs_6r --params-file /home/pi/ros2/install/esc/share/esc/config/teensy_config.yaml
 
-   Jun 26 13:29:55 klopsi-main-01 systemd[1007]: Started ESC Commander.
-   Jun 26 13:30:09 klopsi-main-01 zsh[1017]: [INFO] [launch]: All log files can be found below /home/pi/.ros/log/2024-06-26-13-30-09-507833-klopsi-main-01-1017
-   Jun 26 13:30:09 klopsi-main-01 zsh[1017]: [INFO] [launch]: Default logging verbosity is set to INFO
-   Jun 26 13:30:10 klopsi-main-01 zsh[1017]: [INFO] [teensy_commander_node-1]: process started with pid [2075]
-   Jun 26 13:30:11 klopsi-main-01 zsh[1017]: [teensy_commander_node-1] [WARN] [1719401411.546179201] [bluerov01.esc_commander]: '/bluerov01/thruster_command' controls timed out.
+   Jul 02 10:07:28 klopsi-main-01 zsh[669]: [INFO] [launch]: All log files can be found below /home/pi/.ros/log/2024-07-02-10-07-28-093346-klopsi-main-01-669
+   Jul 02 10:07:28 klopsi-main-01 zsh[669]: [INFO] [launch]: Default logging verbosity is set to INFO
+   Jul 02 10:07:28 klopsi-main-01 zsh[669]: [INFO] [teensy_commander_node-1]: process started with pid [1798]
+   Jul 02 10:07:29 klopsi-main-01 zsh[669]: [teensy_commander_node-1] [WARN] [1719907649.872115519] [bluerov01.esc_commander]: '/bluerov01/thruster_command' controls timed out.
+   Warning: journal has been rotated since unit was started and some journal files were not opened due to insufficient permissions, output may be incomplete.
 
 We can observe that is is active and running.
 
@@ -71,7 +71,7 @@ We can switch to another session by :kbd:`ctrl-a s` and choose the desired sessi
 
    .. code-block:: console
 
-      $ systemctl --user restart tmux-monitoring.service
+      $ sudo systemctl restart tmux-monitoring.service
 
 .. note::
 
@@ -92,14 +92,14 @@ If we require a certain setup for a certain period and do not want to start it m
 
 .. code-block:: console
 
-   $ systemctl --user enable --now my-newly-enabled-service.service
+   $ sudo systemctl enable --now my-newly-enabled-service.service
 
 We can disable it on some future date.
 A problem for future-you!
 
 .. code-block:: console
 
-   $ systemctl --user disable --now my-newly-enabled-service.service
+   $ sudo systemctl disable --now my-newly-enabled-service.service
 
 How do I write such a service?
 ==============================
@@ -115,6 +115,11 @@ Simply change ``Description`` and ``ExecStart``.
    [Service]
    Type=simple
    ExecStart=/usr/bin/zsh -i -c 'ros2 launch esc teensy_esc.launch.py vehicle_name:="$VEHICLE_NAME" use_sim_time:=false'
+   User=pi
 
    [Install]
-   WantedBy=default.target
+   WantedBy=multi-user.target
+
+.. note::
+
+   Do not forget to set the user to ``pi`` with ``User=pi``.
