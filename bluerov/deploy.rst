@@ -1,6 +1,10 @@
 Deploy Klopsi
 =============
 
+.. note::
+
+   Make sure you have read and understood :ref:`deployment_concept`.
+
 SSH Access
 **********
 
