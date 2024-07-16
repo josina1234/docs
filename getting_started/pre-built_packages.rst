@@ -21,7 +21,14 @@ Add Sources
 
    .. code-block:: console
 
-      $ echo "deb [arch=$(dpkg --print-architecture) signed-by/etc/apt/keyrings/hippocampus-robotics.asc] https://repositories.hippocampus-robotics.net/ubuntu $(lsb_release -cs) main" > sudo tee /etc/apt/sources.list.d/hippocampus.list
+      $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/hippocampus-robotics.asc] https://repositories.hippocampus-robotics.net/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hippocampus.list
+
+#. Updating ``apt``
+
+   .. code-block:: console
+
+      $ sudo apt update
+   
 
 ``rosdep``
 ==========
@@ -37,5 +44,3 @@ Add Sources
    .. code-block:: console
 
       $ rosdep update
-
-
