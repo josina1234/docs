@@ -13,6 +13,7 @@ Getting Started
    :caption: Contents:
 
    /getting_started/ros_installation
+   /getting_started/pre-built_packages
    /getting_started/workspace_setup
    /getting_started/px4_setup
    /getting_started/installing_qgc
