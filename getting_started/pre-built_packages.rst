@@ -33,11 +33,28 @@ Add Sources
 ``rosdep``
 ==========
 
-#. Add keys for ``rosdep`` so it knows that our packages can be resolved via ``apt install ros-iron-<pkg-name>``.
+#. Add keys for ``rosdep`` so it knows that our packages can be resolved via ``apt install ros-${ROS_DISTRO}-<pkg-name>``.
+
+   .. attention::
+
+      Make sure that ``ROS_DISTRO`` is set to the installed ROS version by checking
+
+      .. code-block:: console
+
+         $ echo $ROS_DISTRO
+         jazzy # (or whatever ROS version is used.)
+
+      If it not set, it can be set manually by
+
+      .. code-block:: console
+
+         $ export ROS_DISTRO=jazzy
+      
+      
 
    .. code-block:: console
 
-      $ echo 'yaml https://raw.githubusercontent.com/HippoCampusRobotics/hippo_common/main/rosdep.yaml' | sudo tee /etc/ros/rosdep/sources.list.d/50-hippocampus-packages.list
+      $ echo "yaml https://raw.githubusercontent.com/HippoCampusRobotics/hippo_common/main/rosdep-${ROS_DISTRO}.yaml" | sudo tee /etc/ros/rosdep/sources.list.d/50-hippocampus-packages.list
 
 #. Apply the changes
 
