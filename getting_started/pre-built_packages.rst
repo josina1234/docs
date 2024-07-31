@@ -74,27 +74,27 @@ To find out which packages can be installed from our repository, execute
 
    .. code-block:: console
 
-   $ curl -s https://repositories.hippocampus-robotics.net/ubuntu/dists/noble/main/binary-amd64/Packages | grep "^Package: " | cut -d" " -f2 | sort -u
-      ros-jazzy-acoustic-msgs
-      ros-jazzy-alpha-msgs
-      ros-jazzy-buttons-msgs
-      ros-jazzy-dvl
-      ros-jazzy-dvl-msgs
-      ros-jazzy-esc
-      ros-jazzy-gantry-msgs
-      ros-jazzy-hardware
-      ros-jazzy-hippo-common
-      ros-jazzy-hippo-common-msgs
-      ros-jazzy-hippo-control
-      ros-jazzy-hippo-control-msgs
-      ros-jazzy-hippo-msgs
-      ros-jazzy-mjpeg-cam
-      ros-jazzy-path-planning
-      ros-jazzy-px4-msgs
-      ros-jazzy-rapid-trajectories-msgs
-      ros-jazzy-remote-control
-      ros-jazzy-state-estimation-msgs
-      ros-jazzy-uvms-msgs
+      $ curl -s https://repositories.hippocampus-robotics.net/ubuntu/dists/noble/main/binary-amd64/Packages | grep "^Package: " | cut -d" " -f2 | sort -u
+         ros-jazzy-acoustic-msgs
+         ros-jazzy-alpha-msgs
+         ros-jazzy-buttons-msgs
+         ros-jazzy-dvl
+         ros-jazzy-dvl-msgs
+         ros-jazzy-esc
+         ros-jazzy-gantry-msgs
+         ros-jazzy-hardware
+         ros-jazzy-hippo-common
+         ros-jazzy-hippo-common-msgs
+         ros-jazzy-hippo-control
+         ros-jazzy-hippo-control-msgs
+         ros-jazzy-hippo-msgs
+         ros-jazzy-mjpeg-cam
+         ros-jazzy-path-planning
+         ros-jazzy-px4-msgs
+         ros-jazzy-rapid-trajectories-msgs
+         ros-jazzy-remote-control
+         ros-jazzy-state-estimation-msgs
+         ros-jazzy-uvms-msgs
 
 We can install them by
 
