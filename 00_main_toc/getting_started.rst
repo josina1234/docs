@@ -6,7 +6,7 @@ Getting Started
    We are moving to ROS2. This guide is still in the process of being updated. There might be some construction works still going on here and there.
 
 .. note::
-   This guide assumes `Ubuntu 22.04 <https://releases.ubuntu.com/22.04/>`_ is used as OS.
+   This guide assumes `Ubuntu 24.04 <https://releases.ubuntu.com/24.04/>`_ is used as OS.
 
 .. toctree::
    :maxdepth: 2

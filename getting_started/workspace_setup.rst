@@ -4,67 +4,27 @@ Workspace Setup
 In the following, we describe our ROS2 system setup.
 
 .. note::
-   This guide assumes `Ubuntu 22.04 <https://releases.ubuntu.com/22.04/>`_ is used as OS. We use ROS2 `Iron <https://docs.ros.org/en/iron/index.html>`_.
+   This guide assumes `Ubuntu 24.04 <https://releases.ubuntu.com/24.04/>`_ is used as OS. We use ROS2 `jazzy <https://docs.ros.org/en/jazzy/index.html>`_.
 
 
 Our Workspace Setup
 -------------------
 
-There are a few packages that we will need to build from source, but probably will not touch (or at least not too much). In order to keep the compilation time of our workspace as short as possible during development, we will use a setup with two overlayed workspaces. 
+There are a few packages that we will need to build from source, but probably will not touch (or at least not too much).
+In order to keep the compilation time of our workspace as short as possible during development, we will use a setup with two overlayed workspaces. 
 We use :file:`ros2` as development workspace und :file:`ros2_underlay` for larger manually compiled non-development packages that take a lot of time to compile/recompile.
-Typical packages for :file:`ros2_underlay` are :code:`px4_msgs` and a ROS2 version of :code:`apriltag_ros` (since there has not been an official release at this point of time).
-In :file:`ros2`, we will keep all of our own packages.
+In :file:`ros2`, we will keep all of the packages we will develop more or less actively.
 
 To create this directory structure, execute:
 
 .. code-block:: console
 
-   $ mkdir -p ~/ros2/src
-   $ mkdir -p ~/ros2_underlay/src
+   $ mkdir -p ~/ros2/src \
+   && mkdir -p ~/ros2_underlay/src
 
 
 Getting the external packages
 -----------------------------
-
-We will need the following external packages that we will put into :file:`ros2_underlay`:
-
-PX4-msgs
-********
-
-Either 
-
-* install prebuilt package (**recommended**)
-
-   .. tabs::
-
-      .. group-tab:: Jazzy
-
-         * :download:`amd64 </res/misc/ros-jazzy-px4-msgs_2.0.1-0noble_amd64.deb>`
-
-      .. group-tab:: Iron
-         
-         * :download:`amd64 </res/misc/ros-iron-px4-msgs_2.0.1-0jammy_amd64.deb>`
-         * :download:`arm64 </res/misc/ros-iron-px4-msgs_2.0.1-0jammy_arm64.deb>`
-
-
-      .. group-tab:: Humble
-         
-         * :download:`amd64 </res/misc/ros-humble-px4-msgs_2.0.1-0jammy_amd64.deb>`
-         * :download:`arm64 </res/misc/ros-humble-px4-msgs_2.0.1-0jammy_arm64.deb>`
-
-
-or
-
-* build from source
-
-   .. important:: See :ref:`getting_started/px4_setup:PX4 Setup` for a tested commit of the repository.
-
-   .. code:: console
-
-      $ cd ~/ros2_underlay/src && \
-      git clone https://github.com/PX4/px4_msgs.git && \
-      cd px4_msgs && \
-      git checkout 8a7f3da
 
 AprilTag-ROS
 ************
@@ -100,17 +60,18 @@ Using ROS Iron, the normal release version should work just fine:
 Building the Workspaces
 -----------------------
 
-With :code:`colcon`, the new build tool for ROS2, you cannot build your custom workspace when it is sourced. This would mean that you either cannot source your workspace in :file:`.zshrc` (or :file:`.bashrc` if you use bash), or you have to manually make sure to run the build command in an environment where you only source workspaces outside the workspace you want to build. 
+With :code:`colcon`, the new build tool for ROS2, you cannot build your custom workspace when it is sourced.
+This would mean that you either cannot source your workspace in :file:`.zshrc` (or :file:`.bashrc` if you use bash), or you have to manually make sure to run the build command in an environment where you only source workspaces outside the workspace you want to build. 
 
 Since this is very tedious, we define some aliases. Put these two lines into your :file:`.zshrc`:
 
 .. code:: sh
 
    echo "alias build_ros=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source \$HOME/ros2_underlay/install/setup.bash && cd \$HOME/ros2 && colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'\"" >> ~/.zshrc
-   echo "alias build_underlay=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd \$HOME/ros2_underlay && colcon build'\"" >> ~/.zshrc
+   echo "alias build_underlay=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd \$HOME/ros2_underlay && colcon build'\"" >> ~/.zshrc
    source ~/.zshrc
    alias rosdep-ros2="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && rosdep install --from-paths src -y --ignore-src'"
-   alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"
+   alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"
 
 .. important::
    Make sure to source the :file:`.zshrc` in your terminal each time you make changes. 
@@ -118,7 +79,7 @@ Since this is very tedious, we define some aliases. Put these two lines into you
 Underlay Workspace
 ******************
 
-We can now build the first "under"layed workspace :file:`ros2_underlay`.
+We can now build the first *underlayed* workspace :file:`ros2_underlay`.
 But first, let's check for unresolved dependencies.
 
 .. code:: console
@@ -138,14 +99,14 @@ Add sourcing the ROS installation in your :code:`.zshrc`
 .. code:: console
 
    $ echo 'source /opt/ros/iron/setup.zsh' >> ~/.zshrc && \
-   $ source ~/.zshrc
+   source ~/.zshrc
 
 After a successful build, we can source this workspace in the :file:`.zshrc`, so that our main, overlayed workspace will find it.
 
 .. code:: console
 
    $ echo 'source $HOME/ros2_underlay/install/setup.zsh' >> ~/.zshrc && \
-   $ source ~/.zshrc
+   source ~/.zshrc
 
 Main Workspace
 **************
@@ -160,18 +121,28 @@ Core packages
    .. code-tab:: console ssh
 
       $ cd ~/ros2/src \
-      && git clone --recursive git@github.com:HippoCampusRobotics/hippo_core.git \
+      && git clone --recursive git@github.com:HippoCampusRobotics/hippo_common.git \
+      && git clone --recursive git@github.com:HippoCampusRobotics/hippo_msgs.git \
       && git clone git@github.com:HippoCampusRobotics/hippo_control_msgs.git \
-      && git clone git@github.com:HippoCampusRobotics/hippo_simulation.git \
+      && git clone git@github.com:HippoCampusRobotics/hippo_sim.git \
+      && git clone git@github.com:HippoCampusRobotics/hippo_gz_plugins.git \
+      && git clone --recursive git@github.com:HippoCampusRobotics/esc.git \
+      && git clone git@github.com:HippoCampusRobotics/hippo_control.git \
+      && git clone git@github.com:HippoCampusRobotics/remote_control.git \
       && git clone git@github.com:HippoCampusRobotics/state_estimation.git \
       && git clone git@github.com:HippoCampusRobotics/visual_localization.git
 
    .. code-tab:: console https
       
       $ cd ~/ros2/src \
-      && git clone --recursive https://github.com/HippoCampusRobotics/hippo_core.git \
+      && git clone --recursive https://github.com/HippoCampusRobotics/hippo_common.git \
+      && git clone --recursive https://github.com/HippoCampusRobotics/hippo_msgs.git \
       && git clone https://github.com/HippoCampusRobotics/hippo_control_msgs.git \
-      && git clone https://github.com/HippoCampusRobotics/hippo_simulation.git \
+      && git clone https://github.com/HippoCampusRobotics/hippo_sim.git \
+      && git clone https://github.com/HippoCampusRobotics/hippo_gz_plugins.git \
+      && git clone --recursive https://github.com/HippoCampusRobotics/esc.git \
+      && git clone https://github.com/HippoCampusRobotics/hippo_control.git \
+      && git clone https://github.com/HippoCampusRobotics/remote_control.git \
       && git clone https://github.com/HippoCampusRobotics/state_estimation.git \
       && git clone https://github.com/HippoCampusRobotics/visual_localization.git
 
@@ -219,6 +190,11 @@ Note that since this workspace overlays the :file:`ros2_underlay` workspace, thi
 Auto-Complete
 *************
 
+.. todo::
+
+   This might have changed for Ubuntu 24.04.
+   Check and complete this todo!
+
 ROS2 command line tools do not autocomplete as of this `GitHub Issue <https://github.com/ros2/ros2cli/issues/534>`_. While this issue has since been closed, the problem still occurs. To fix this
 
 .. code-block:: console
@@ -242,12 +218,12 @@ Your :file:`.zshrc` should look similar to this now:
 
 
    alias build_ros="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && colcon build --symlink-install --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'"
-   alias build_underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd $HOME/ros2_underlay && colcon build --symlink-install --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'"
+   alias build_underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd $HOME/ros2_underlay && colcon build --symlink-install --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'"
 
    alias rosdep-ros2="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && rosdep install --from-paths src -y --ignore-src'"
-   alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/iron/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"
+   alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"
 
-   source /opt/ros/iron/setup.zsh
+   source /opt/ros/jazzy/setup.zsh
    source $HOME/ros2_underlay/install/local_setup.zsh
    source $HOME/ros2/install/local_setup.zsh
 

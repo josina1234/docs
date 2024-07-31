@@ -2,7 +2,7 @@
 
 ROS Installation
 ################
-.. note:: The following installations steps work for a Ubuntu 22.04 amd64 version **and** for the Ubuntu 22.04 server image for the Raspberry Pi.
+.. note:: The following installations steps work for a Ubuntu 24.04 amd64 version **and** for the Ubuntu 24.04 arm64 server image for the Raspberry Pi.
 
 Preparation
 ===========
