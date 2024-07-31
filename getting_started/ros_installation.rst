@@ -1,3 +1,5 @@
+.. _ros-installation:
+
 ROS Installation
 ################
 .. note:: The following installations steps work for a Ubuntu 22.04 amd64 version **and** for the Ubuntu 22.04 server image for the Raspberry Pi.
@@ -11,7 +13,7 @@ Preparation
       
       $ locale
    
-   If not, refer to the `ROS documentation <https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html#set-locale>`__.
+   If not, refer to the `ROS documentation <https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html#set-locale>`__.
 
 #. Enable universe repository
    
@@ -48,18 +50,18 @@ Preparation
 Installation
 ============
 
-.. note:: Choose the installation option depending on your needs. Probably it's **not** reasonable to install :code:`ros-iron-desktop-full` on an Ubuntu server image for the Raspberry Pi.
+.. note:: Choose the installation option depending on your needs. Probably it's **not** reasonable to install :code:`ros-jazzy-desktop-full` on an Ubuntu server image for the Raspberry Pi.
 
 #. Install ROS
 
    .. tabs::
       .. code-tab:: sh desktop-full
 
-         sudo apt install ros-iron-desktop-full
+         sudo apt install ros-jazzy-desktop-full
       
       .. code-tab:: sh perception (e.g. for Raspberry Pi)
 
-         sudo apt install ros-iron-perception
+         sudo apt install ros-jazzy-perception
 
 
 #. Install development tools
@@ -80,3 +82,13 @@ rosdep Initialization
    $ sudo rosdep init && rosdep update
 
 .. note:: Do **not** execute :code:`rosdep update` with root privileges. This would lead to permission issues.
+
+Source the ROS Setup
+====================
+
+.. code-block:: console
+
+   $ echo 'source /opt/ros/jazzy/setup.zsh' >> ~/.zshrc \
+   && . ~/.zshrc
+
+
