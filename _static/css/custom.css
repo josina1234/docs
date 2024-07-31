@@ -55,8 +55,13 @@ div.admonition {
    font-size: 10pt;
 }
 
+/* make console output non-selectable */
 .go {
    user-select: none;
+}
+
+button.copybtn {
+   opacity: 1;
 }
 
 .rst-content div[class^="highlight"] {

@@ -81,4 +81,6 @@ favicons = [
     "hippo.svg",
 ]
 
+copybutton_copy_empty_lines = False
 copybutton_exclude = '.linenos, .gp, .go'
+copybutton_line_continuation_character = "\\"
