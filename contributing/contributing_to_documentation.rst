@@ -21,28 +21,28 @@ Since Sphinx follws the `WYSIWYM paradigm <https://en.wikipedia.org/wiki/WYSIWYM
 
 Probably easiest way to do so is to setup a virtual environment for python by executing the following commmand inside your cloned fork of the documentation repository:
 
-.. code-block:: bash
+.. code-block:: console
 
-   python3 -m venv venv
+   $ python3 -m venv venv
 
 Activate the virtual environment with
 
-.. code-block:: bash
+.. code-block:: console
 
-   source venv/bin/activate
+   $ source venv/bin/activate
 
 
 and install the Sphinx dependencies by executing
 
-.. code-block:: bash
+.. code-block:: console
 
-   pip3 install -r requirements.txt
-
+   $ pip3 install -r requirements.txt
+ 
 Now you can build the documentation by running
 
-.. code-block:: bash
+.. code-block:: console
 
-   make html
+   $ make html
 
 .. note:: Always make sure to have the virtual environment activated when executing the ``make html`` command.
 
@@ -50,6 +50,10 @@ View the HTML output
 ********************
 
 You can view the HTML output by opening :file:`_build/html/index.html` with a webbrowser.
+
+.. code-block:: console
+
+   $ firefox _build/html/index.html & disown 
 
 Autogenerate Documentation
 **************************
