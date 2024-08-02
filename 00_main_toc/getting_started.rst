@@ -12,6 +12,7 @@ Getting Started
    :maxdepth: 2
    :caption: Contents:
 
+   /getting_started/zsh_and_other_quality_of_live_features
    /getting_started/ros_installation
    /getting_started/pre-built_packages
    /getting_started/workspace_setup

@@ -46,7 +46,7 @@ Download our version:
       && git clone -b hippo https://github.com/HippoCampusRobotics/apriltag_ros.git
 
 
-PlotJugger
+PlotJuggler
 **********
 
 PlotJuggler is a very convenient plotting tool. 
@@ -70,8 +70,10 @@ Since this is very tedious, we define some aliases. Put these two lines into you
    echo "alias build_ros=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source \$HOME/ros2_underlay/install/setup.bash && cd \$HOME/ros2 && colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'\"" >> ~/.zshrc
    echo "alias build_underlay=\"env -i HOME=\$HOME USER=\$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd \$HOME/ros2_underlay && colcon build'\"" >> ~/.zshrc
    source ~/.zshrc
-   alias rosdep-ros2="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && rosdep install --from-paths src -y --ignore-src'"
-   alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"
+   echo "alias rosdep-ros2="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source $HOME/ros2_underlay/install/setup.bash && cd $HOME/ros2 && rosdep install --from-paths src -y --ignore-src'"" >> ~/.zshrc
+   source ~/.zshrc
+   echo "alias rosdep-underlay="env -i HOME=$HOME USER=$USER TERM=xterm-256color bash -l -c 'source /opt/ros/jazzy/setup.bash && cd $HOME/ros2_underlay && rosdep install --from-paths src -y --ignore-src'"" >> ~/.zshrc
+   source ~/.zshrc
 
 .. important::
    Make sure to source the :file:`.zshrc` in your terminal each time you make changes. 
@@ -98,7 +100,7 @@ Add sourcing the ROS installation in your :code:`.zshrc`
 
 .. code:: console
 
-   $ echo 'source /opt/ros/iron/setup.zsh' >> ~/.zshrc && \
+   $ echo "source /opt/ros/${ROS_DISTRO}/setup.zsh" >> ~/.zshrc && \
    source ~/.zshrc
 
 After a successful build, we can source this workspace in the :file:`.zshrc`, so that our main, overlayed workspace will find it.
@@ -199,8 +201,8 @@ ROS2 command line tools do not autocomplete as of this `GitHub Issue <https://gi
 
 .. code-block:: console
    
-   $ echo "eval \"\$(register-python-argcomplete3 ros2)\"" >> ~/.zshrc
-   $ echo "eval \"\$(register-python-argcomplete3 colcon)\"" >> ~/.zshrc
+   $ echo "eval \"\$(register-python-argcomplete ros2)\"" >> ~/.zshrc
+   $ echo "eval \"\$(register-python-argcomplete colcon)\"" >> ~/.zshrc
 
 Auto-completing topic names seems to work only after an execution of `ros2 topic list`. Before the auto-complete gets stuck and has to be canceled by :kbd:`Ctrl` + :kbd:`C`.
 
@@ -227,5 +229,5 @@ Your :file:`.zshrc` should look similar to this now:
    source $HOME/ros2_underlay/install/local_setup.zsh
    source $HOME/ros2/install/local_setup.zsh
 
-   eval "$(register-python-argcomplete3 ros2)"
-   eval "$(register-python-argcomplete3 colcon)"
+   eval "$(register-python-argcomplete ros2)"
+   eval "$(register-python-argcomplete colcon)"
