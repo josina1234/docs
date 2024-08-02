@@ -6,31 +6,36 @@ NooElec R820T2 SDR & DVB-T NESDR Mini 2
 Firmware Installation
 =====================
 
-.. code-block:: sh
 
-   git clone https://gitea.osmocom.org/sdr/rtl-sdr.git
-   cd rtl-sdr
-   mkdir build
-   cd build
-   cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON
-   make
-   sudo make install
+
+.. code-block:: console
+
+   $ git clone git@github.com:librtlsdr/librtlsdr.git && \
+   cd librtlsdr && \
+   mkdir build && \
+   cd build && \
+   cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON && \
+   make && \
+   sudo make install && \
    sudo ldconfig
 
-Install Python Wrapper
+Install python wrapper from source. Installation via pip does not work from Ubuntu 24.04 on and package is currently not available via apt.
 
-.. code-block:: sh
+.. code-block:: console
 
-   pip install pyrtlsdr pyrtlsdrlib
+   $ cd && \ 
+   git clone git@github.com:pyrtlsdr/pyrtlsdr.git && \
+   cd pyrtlsdr && \
+   sudo python3 setup.py install
 
 Fix Access Error
 ================
 
 If you try to use the DVB-T stick using pyrtlsdr, for example using
 
-.. code-block:: sh
+.. code-block:: console
 
-   ros2 launch sdr sdr.launch.py
+   $ ros2 launch sdr sdr.launch.py
 
 You might get the following error message:
 
