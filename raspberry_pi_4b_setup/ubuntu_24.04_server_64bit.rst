@@ -1,7 +1,6 @@
-Ubuntu 22.04 Server 64bit
+Ubuntu 24.04 Server 64bit
 #########################
 
-.. todo:: Probably the MIPI Arducam OV9281 is not compatible with Ubuntu.
 
 Modify Cloud-Init
 =================
@@ -46,14 +45,42 @@ Modify :file:`user-data` on the :file:`system-boot` partition to your liking. An
 
 Boot Config
 ===========
+On the :file:`system-boot` partition of the SD Card prepared for the Pi, edit :file:`config.txt`
+and append the required lines for the specific setup.
+
+.. note::
+
+   This can also be done from the live system later on.
+   The path to the file is then :file:`/boot/firmware/config.txt`
+
 See `the documentation <https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README>`__ for details on device tree overlays.
 
 I2C
 ***
 
-.. code-block:: sh
+.. code-block:: ini
 
    dtoverlay=i2c4,pins_6_7
+
+UART
+****
+
+.. code-block:: ini
+
+   dtoverlay=uart2
+   dtoverlay=uart3
+   dtoverlay=uart4
+   dtoverlay=uart5
+
+Disable Interactive Upgrade
+===========================
+
+Edit :file:`needrestart.conf` so it contains the following entries (uncomment and modify as required)
+
+.. code-block:: conf
+
+   $nrconf{restart} = 'a';
+   $nrconf{kernelhints} = 0
 
 Create Workspace
 ================
