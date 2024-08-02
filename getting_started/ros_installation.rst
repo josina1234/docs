@@ -75,10 +75,6 @@ rosdep Initialization
 
 .. code-block:: console
 
-   $ sudo apt install python3-rosdep
-
-.. code-block:: console
-
    $ sudo rosdep init && rosdep update
 
 .. note:: Do **not** execute :code:`rosdep update` with root privileges. This would lead to permission issues.
