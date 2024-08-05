@@ -47,7 +47,7 @@ Download our version:
 
 
 PlotJuggler
-**********
+***********
 
 PlotJuggler is a very convenient plotting tool. 
 Using ROS Iron, the normal release version should work just fine:
