@@ -6,6 +6,16 @@ NooElec R820T2 SDR & DVB-T NESDR Mini 2
 Firmware Installation
 =====================
 
+Requirements:
+
+.. code-block:: console
+
+   $ sudo apt install build-essential cmake git && \
+   sudo apt install libusb-dev libusb-1.0-0-dev
+
+
+Clone rtl-sdr library and build:
+
 .. tabs::
 
    .. code-tab:: console ssh
@@ -30,7 +40,7 @@ Firmware Installation
       sudo make install && \
       sudo ldconfig
 
-Install python wrapper from source. Installation via pip does not work from Ubuntu 24.04 on and package is currently not available via apt.
+Install python wrapper from source. Installation via pip does not work from Ubuntu 24.04 on and package is currently not available via apt:
 
 .. tabs::
 
