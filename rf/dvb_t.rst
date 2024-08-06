@@ -6,27 +6,48 @@ NooElec R820T2 SDR & DVB-T NESDR Mini 2
 Firmware Installation
 =====================
 
+.. tabs::
 
+   .. code-tab:: console ssh
 
-.. code-block:: console
+      $ git clone git@github.com:librtlsdr/librtlsdr.git && \
+      cd librtlsdr && \
+      mkdir build && \
+      cd build && \
+      cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON && \
+      make && \
+      sudo make install && \
+      sudo ldconfig
 
-   $ git clone git@github.com:librtlsdr/librtlsdr.git && \
-   cd librtlsdr && \
-   mkdir build && \
-   cd build && \
-   cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON && \
-   make && \
-   sudo make install && \
-   sudo ldconfig
+   .. code-tab:: console https
+
+      $ git clone https://github.com/librtlsdr/librtlsdr.git && \
+      cd librtlsdr && \
+      mkdir build && \
+      cd build && \
+      cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON && \
+      make && \
+      sudo make install && \
+      sudo ldconfig
 
 Install python wrapper from source. Installation via pip does not work from Ubuntu 24.04 on and package is currently not available via apt.
 
-.. code-block:: console
+.. tabs::
 
-   $ cd && \ 
-   git clone git@github.com:pyrtlsdr/pyrtlsdr.git && \
-   cd pyrtlsdr && \
-   sudo python3 setup.py install
+   .. code-tab:: console ssh
+
+      $ cd && \ 
+      git clone git@github.com:pyrtlsdr/pyrtlsdr.git && \
+      cd pyrtlsdr && \
+      sudo python3 setup.py install
+
+   .. code-tab:: console https
+
+      $ cd && \ 
+      git clone https://github.com/pyrtlsdr/pyrtlsdr.git && \
+      cd pyrtlsdr && \
+      sudo python3 setup.py install
+
 
 Fix Access Error
 ================
