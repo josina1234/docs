@@ -59,7 +59,7 @@ This requires some additional steps as it involves updating the buildbot to make
       .. code-block:: console
 
          $ buildbot restart basedir
-         never sawy process go away
+         never saw process go away
 
       We can either wait until it has completed (probably preferable) or if we do not care about the running builds, kill the ``twistd`` process.
 
