@@ -28,6 +28,7 @@ Welcome to HippoCampusDocs's documentation!
    00_main_toc/ros2
    00_main_toc/misc
    00_main_toc/ros_deprecated
+   00_main_toc/install_source_dependencies
 
 
 
