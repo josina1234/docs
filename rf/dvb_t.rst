@@ -10,8 +10,8 @@ Requirements:
 
 .. code-block:: console
 
-   $ sudo apt install build-essential cmake git && \
-   sudo apt install libusb-dev libusb-1.0-0-dev
+   $ sudo apt install build-essential cmake git \
+   && sudo apt install libusb-dev libusb-1.0-0-dev
 
 
 Clone rtl-sdr library and build:
@@ -31,14 +31,14 @@ Clone rtl-sdr library and build:
 
    .. code-tab:: console https
 
-      $ git clone https://github.com/librtlsdr/librtlsdr.git && \
-      cd librtlsdr && \
-      mkdir build && \
-      cd build && \
-      cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON && \
-      make && \
-      sudo make install && \
-      sudo ldconfig
+      $ git clone https://github.com/librtlsdr/librtlsdr.git \
+      && cd librtlsdr \
+      && mkdir build \
+      && cd build \
+      && cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON \
+      && make \
+      && sudo make install \
+      && sudo ldconfig
 
 Install python wrapper from source. Installation via pip does not work from Ubuntu 24.04 on and package is currently not available via apt:
 
@@ -46,17 +46,17 @@ Install python wrapper from source. Installation via pip does not work from Ubun
 
    .. code-tab:: console ssh
 
-      $ cd && \ 
-      git clone git@github.com:pyrtlsdr/pyrtlsdr.git && \
-      cd pyrtlsdr && \
-      sudo python3 setup.py install
+      $ cd \ 
+      && git clone git@github.com:pyrtlsdr/pyrtlsdr.git \
+      && cd pyrtlsdr \
+      && sudo python3 setup.py install
 
    .. code-tab:: console https
 
-      $ cd && \ 
-      git clone https://github.com/pyrtlsdr/pyrtlsdr.git && \
-      cd pyrtlsdr && \
-      sudo python3 setup.py install
+      $ cd \ 
+      && git clone https://github.com/pyrtlsdr/pyrtlsdr.git \
+      && cd pyrtlsdr \
+      && sudo python3 setup.py install
 
 
 Fix Access Error
