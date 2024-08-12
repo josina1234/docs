@@ -70,6 +70,18 @@ Add Sources
 Installation
 ============
 
+For desktop use ``hippo_full`` is most likely the appropriate choice, while for Raspberry Pis deployed with the Ubuntu server image the ``hippo_robot`` package without graphical dependencies is the better choice.
+
+.. tabs::
+
+   .. code-tab:: console hippo_full
+      
+      $ sudo apt install ros-${ROS_DISTRO}-hippo-full
+
+   .. code-tab:: console hippo_robot
+
+      $ sudo apt install ros-${ROS_DISTRO}-hippo-robot
+
 To find out which packages can be installed from our repository, execute
 
    .. code-block:: console
