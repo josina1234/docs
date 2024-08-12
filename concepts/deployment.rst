@@ -14,6 +14,10 @@ We use ``systemd`` for starting these nodes.
 Where can I find the services that are starting the nodes?
 ==========================================================
 
+.. attention::
+
+   The system services require the ``VEHICLE_NAME`` variable to be exported in the :file:`~/.zshrc` file.
+
 The files are in :file:`/etc/systemd/system/`
 
 .. code-block:: console
@@ -87,7 +91,7 @@ If there is already a service available we can start it without enabling it.
 It will run until
 
 * it finishes/crashes
-* it is stopped via ``systemctl --user stop my-service.service``
+* it is stopped via ``sudo systemctl stop my-service.service``
 * the Raspberry Pi is rebooted
 
 If we require a certain setup for a certain period and do not want to start it manually each time, we can enable the service for this period for sure!
