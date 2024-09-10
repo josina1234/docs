@@ -32,3 +32,28 @@ Arming State
 Battery Level
    As soon as the battery level indicator light turns to anything else then green for more than a few seconds (a few like 5 at maximum), it is time to more or less immediately switch off the vehicle and remove the battery.
    A deep discharge of the battery is no fun.
+
+Display
+=======
+
+In :file:`/boot/fimware/config.txt` append
+
+.. code-block:: ini
+   
+   core_freq=500
+   core_freq_min=500
+   dtoverlay=fbtft,spi0-0,ili9341,bgr,reset_pin=24,dc_pin=25,led_pin=23,rotate=270
+
+and make sure the line
+
+.. code-block:: ini
+
+   dtparam=spi=on
+
+exists.
+
+Create the ``udev`` rule in :file: `/etc/udev/rules.d/50-spi.rules`
+
+.. code-block:: sh
+
+   KERNEL=="spidev*", RUN="/bin/sh -c 'chgrp -R gpio /dev/spidev* && chmod -R g+rw /dev/spidev*'"
