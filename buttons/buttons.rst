@@ -57,3 +57,10 @@ Create the ``udev`` rule in :file: `/etc/udev/rules.d/50-spi.rules`
 .. code-block:: sh
 
    KERNEL=="spidev*", RUN="/bin/sh -c 'chgrp -R gpio /dev/spidev* && chmod -R g+rw /dev/spidev*'"
+
+To run the UI, make sure to select ``linuxfb`` as platform plugin, since this is the way the ILI9341 display is interfaced.
+
+.. code-block:: console
+
+   $ echo 'export QT_QPA_PLATFORM=linuxfb' >> ~/.zshrc
+
