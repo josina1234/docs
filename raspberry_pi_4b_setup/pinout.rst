@@ -30,6 +30,6 @@ Pinout
    .. tab:: Buttons
 
       .. image:: /res/images/pi_pinout_buttons.svg
-      :width: 30000
-      :align: center
+         :width: 30000
+         :align: center
 
