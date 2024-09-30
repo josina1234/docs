@@ -1,10 +1,6 @@
 Starting Simulation
 ###################
 
-.. todo:: Rework for ROS2 needed.
-
-.. hint:: If launching gazebo from ROS, ROS is not able to kill the gazebo node without escalating to **SIGTERM**. This happens after a 15s timeout. If you do not have the time to wait for so long, you can modifiy :file:`/opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py` and change :code:`DEFAULT_TIMEOUT_SIGINT` to some value you are willing to wait.
-
 
 General Launch Setup
 ====================
@@ -14,21 +10,6 @@ Vehicle-specific nodes should be launched in namespace "vehicle_name", for examp
 Each camera node should be launched in namespace "camera_name", which can be: :code:`vertical_camera` for HippoCampus, and :code:`vertical_camera` and :code:`front_camera` for the BlueROV's two cameras.
 
 
-Parameter Setup
-===============
-
-Before continuing on the *hydrobatic-way-of-live*, we need to set some parameters first.
-
-In QGroundControl:
-
-We set *Offboard* as a flight mode in which remote control (RC) loss is ignored. Thus, *fail-safe* actions are not triggered.
-
-.. code-block:: sh
-
-    COM_RCL_EXCEPT=4
-
-
-
 Spawning HippoCampus
 ====================
 
@@ -36,7 +17,12 @@ To start Gazebo with one HippoCampus:
 
 .. code-block:: console
 
-   $ roslaunch hippocampus_sim top_single_vehicle_complete.launch
+   $ ros2 launch hippo_sim top_hippocampus_complete.launch vehicle_name:=uuv00 start_gui:=true
+
+As an example, we use :code:`uuv00` as the vehicle name. Per default, we do not open the Gazebo GUI but use RVIZ instead for visualization. If you want to see the Gazebo GUI, you need to set the respective launch argument to true: :code:`start_gui:=true`.
+
+This launchfile starts the simualtion and spawns the vehicle, the tank and, optionally, AprilTags on the floor. 
+It also starts some utilities such as the camera bridge between Gazebo and ROS2, our tf helper for basic transformations, as well as the vehicle-specific actuator mixer. 
 
 
 Path Following example
@@ -44,31 +30,23 @@ Path Following example
 
 As an example, we will let the HippoCampus follow an Infinity-shaped path in Gazebo.
 
-Here is the launch file code :file:`top_path_following_example.launch` explained: 
+.. code-block:: console
 
-.. todo::
-   
-   ...
+   $ ros2 launch hippo_control top_path_following_intra_process.launch.py vehicle_name:=uuv00 use_sim_time:=true
 
+This will start the path follower node and all other necessary controllers.
 
-
-... Let's start it!
+However, by default, the thrust setpoint will be zero. To move forward, set the thrust to a positive value by publishing to the respective topic:
 
 .. code-block:: console
 
-   $ roslaunch hippocampus_sim top_path_following_example.launch
+   $ ros2 topic pub -r 50 /uuv00/thrust_setpoint hippo_control_msgs/msg/ActuatorSetpoint "{x: 0.8}"
 
-Offboard Mode
-=============
 
-The path follower node publishes attitude setpoints. For the uuv_att_control PX4 module to accept externally provided setpoints, the flight mode *Offboard mode* has to be selected. This mode can only be engaged if the vehicle is already receiving a stream of target setpoints (>2Hz). The vehicle will exit the mode if target setpoints are not received at a rate of >2Hz.
+.. figure:: /res/images/hippo_inf_path_in_simulation.gif
+   :align: center
+   :width: 500
 
-The offboard mode can be selected in QGC.
-
-Arming the Vehicle
-==================
-
-Arming is also done in QGC.
-
+   HippoCampus in Gazebo
 
 
