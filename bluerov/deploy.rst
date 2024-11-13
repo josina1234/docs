@@ -1,14 +1,20 @@
-Deploy Klopsi
-=============
+Deployment
+==========
 
-.. note::
+We have 2 BlueROV2s: 
 
-   Make sure you have read and understood :ref:`deployment_concept`.
+- The old BlueROV. We use it mainly for the SEMS/FAV class. It's vehicle name is :code:`bluerov01`.
+- The newer BlueROV. This one is used for the UVMS setup and has the Alpha arm mounted to it. It's vehicle name is :code:`bluerov02`.
+
+.. todo:: 
+
+   This section is still work in progress.
+
 
 SSH Access
 **********
 
-For convenience, copy your ssh-key to the BlueROV to enable passwordless login and create an entry in your :file:`~/.ssh/config` for the BlueROV similiar to:
+For convenience, you can copy your ssh-key to the BlueROV to enable passwordless login and create an entry in your :file:`~/.ssh/config` for the BlueROV similiar to:
 
 .. tabs::
    .. code-tab:: sh Pi in upper tube
@@ -33,6 +39,18 @@ This entry allows you to use :code:`ssh klopsi-main-01` instead of :code:`ssh pi
 
 Start the usual Setup
 *********************
+
+Automated start of nodes (bluerov01)
+#####################################
+
+For the :code:`bluerov01`, we currently use an automated setup, where all necessary nodes are started at booting.
+
+Make sure you have read and understood :ref:`deployment_concept`.
+
+
+Manual start of nodes (bluerov02)
+##################################
+
 
 .. tabs::
 

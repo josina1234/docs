@@ -1,7 +1,7 @@
 ROS2 Workspace
 ##############
 
-.. attention:: The following workspace structure is recommended in general, but is mandatory for shared devices (i.e. every device that is ot your own computer, like Raspberry Pis or lab computers) to avoid confusion.
+.. attention:: The following workspace structure is recommended in general, but is mandatory for shared devices (i.e. every device that is not your own computer, like Raspberry Pis or lab computers) to avoid confusion.
 
 We use :file:`ros2` as depicted in :numref:`ros2-dev-workspace-structure` as development workspace and :file:`ros2_underlay` shown in :numref:`ros2-underlay-workspace-structure` for larger manually compiled non-development packages that take a lot of time to compile/recompile.
 
@@ -37,7 +37,6 @@ We use :file:`ros2` as depicted in :numref:`ros2-dev-workspace-structure` as dev
    │   └── ...
    └── src
       ├── apriltag_ros
-      ├── PlotJuggler
       └── px4_msgs                     # Takes very long to build! Even if built already.
 
 

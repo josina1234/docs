@@ -1,22 +1,22 @@
 .. _deployment_concept:
 
-Deployment
-##########
+Automated Deployment
+####################
+
+.. attention::
+
+   This section is (so far) only relevant for the old BlueROV2, :code:`bluerov-01`. On this vehicle, we start all ROS nodes automatically at boot.
 
 Some ROS nodes are required to be running on the on-board Pis for all typical deployment setups and are started automatically.
 This mainly refers to nodes representing hardware interfaces.
 We use ``systemd`` for starting these nodes.
 
-.. note::
-
-   In many cases no manual interaction with the Raspberry Pis inside the vehicles is required, since all required nodes are started automatically at boot.
+In many cases no manual interaction with the Raspberry Pis inside the vehicles is required, since all required nodes are started automatically at boot.
 
 Where can I find the services that are starting the nodes?
 ==========================================================
 
-.. attention::
-
-   The system services require the ``VEHICLE_NAME`` variable to be exported in the :file:`~/.zshrc` file.
+The system services require the ``VEHICLE_NAME`` variable to be exported in the :file:`~/.zshrc` file.
 
 The files are in :file:`/etc/systemd/system/`
 
@@ -79,10 +79,8 @@ We can switch to another session by :kbd:`ctrl-a s` and choose the desired sessi
 
       $ sudo systemctl restart tmux-monitoring.service
 
-.. note::
-
-   Monitoring does not hurt nobody.
-   It does no harm to the underlying processes that are monitored and restarting the monitoring session will cleanup the old one before starting the new session.
+Monitoring does not hurt nobody.
+It does no harm to the underlying processes that are monitored and restarting the monitoring session will cleanup the old one before starting the new session.
    
 What about optional nodes that I want to run occasionally?
 ==========================================================
