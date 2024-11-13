@@ -18,7 +18,7 @@ Welcome to HippoCampusDocs's documentation!
    00_main_toc/raspberry_pi_4b_setup
    00_main_toc/time_synchronization
    00_main_toc/camera_calibration
-   00_main_toc/hippocampus_hardware
+   00_main_toc/hippocampus
    00_main_toc/bluerov
    00_main_toc/mixers
    00_main_toc/buttons
