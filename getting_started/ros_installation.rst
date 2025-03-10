@@ -2,7 +2,9 @@
 
 ROS Installation
 ################
-.. note:: The following installations steps work for a Ubuntu 24.04 amd64 version **and** for the Ubuntu 24.04 arm64 server image for the Raspberry Pi.
+
+We use ROS2 Jazzy.
+The following installations steps work for a Ubuntu 24.04 amd64 version **and** for the Ubuntu 24.04 arm64 server image for the Raspberry Pi.
 
 Preparation
 ===========
@@ -50,7 +52,7 @@ Preparation
 Installation
 ============
 
-.. note:: Choose the installation option depending on your needs. Probably it's **not** reasonable to install :code:`ros-jazzy-desktop-full` on an Ubuntu server image for the Raspberry Pi.
+Choose the installation option depending on your needs, e.g. use a more lightweight installation for Raspberry Pis. 
 
 #. Install ROS
 
@@ -86,5 +88,14 @@ Source the ROS Setup
 
    $ echo 'source /opt/ros/jazzy/setup.zsh' >> ~/.zshrc \
    && . ~/.zshrc
+
+A Brief Test (Optional)
+=======================
+
+To check whether ROS2 installation is working:
+
+.. code-block:: console
+
+   $ ros2 run turtlesim turtlesim_node
 
 

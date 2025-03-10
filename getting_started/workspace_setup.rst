@@ -113,10 +113,13 @@ After a successful build, we can source this workspace in the :file:`.zshrc`, so
 Main Workspace
 **************
 
-Now, we can build our main workspace. Let's get our packages:
+.. attention::
+   This is a (mostly) full list of our packages. If you installed the pre-built packages (following :ref:`the previous section <pre-built-packages>`), you probably do not want to clone all these packages.
 
 Core packages
 #############
+
+
 
 .. tabs::
 
@@ -164,6 +167,9 @@ DVL
       $ cd ~/ros2/src \
       && git clone https://github.com/HippoCampusRobotics/dvl.git \
       && git clone https://github.com/HippoCampusRobotics/dvl_msgs.git
+
+Resolving dependencies
+######################
 
 These packages have some more dependencies. Let's resolve them by executing
 

@@ -1,6 +1,11 @@
 Installing QGroundControl
 #########################
 
+.. note::
+   This is currently used for the real robot exclusively and is not part of the simulation.
+   Skip this section if you are **not** preparing for the lab experiments.
+   If in doubt ask your supervisor.
+
 .. todo:: Rework for ROS2 needed.
 
 QGroundControl (QCG) is the Ground Control Station we use for deploying HippoCampus.

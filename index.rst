@@ -10,7 +10,7 @@ Welcome to HippoCampusDocs's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   :numbered: 3
+   :numbered: 1
    
    00_main_toc/contributing
    00_main_toc/getting_started

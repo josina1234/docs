@@ -16,7 +16,7 @@ Getting Started
    /getting_started/ros_installation
    /getting_started/pre-built_packages
    /getting_started/workspace_setup
+   /getting_started/starting_gazebo_simulation
    /getting_started/px4_setup
    /getting_started/installing_qgc
-   /getting_started/starting_gazebo_simulation
    /getting_started/deploying_hippocampus

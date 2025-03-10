@@ -1,3 +1,5 @@
+.. _pre-built-packages:
+
 Pre-built Packages
 ##################
 
@@ -70,7 +72,9 @@ Add Sources
 Installation
 ============
 
-For desktop use ``hippo_full`` is most likely the appropriate choice, while for Raspberry Pis deployed with the Ubuntu server image the ``hippo_robot`` package without graphical dependencies is the better choice.
+For use on a desktop computer, you can install ``hippo_full``.
+
+On Raspberry Pis (deployed with the Ubuntu server image), the ``hippo_robot`` package without graphical dependencies is the better choice.
 
 .. tabs::
 
