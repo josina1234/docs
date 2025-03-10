@@ -3,6 +3,13 @@
 ROS Installation
 ################
 
+.. attention::
+   We are moving to ROS2. This guide and the following pages are still in the process of being updated. There might be some construction works still going on here and there.
+
+.. note::
+   This guide assumes `Ubuntu 24.04 <https://releases.ubuntu.com/24.04/>`_ is used as OS.
+
+
 We use ROS2 Jazzy.
 The following installations steps work for a Ubuntu 24.04 amd64 version **and** for the Ubuntu 24.04 arm64 server image for the Raspberry Pi.
 
