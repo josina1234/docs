@@ -7,5 +7,5 @@ ROS2
    :maxdepth: 2
    :caption: Contents:
    
-   /ros2/misc
-   /ros2/apriltag
+   /contents/ros2/misc
+   /contents/ros2/apriltag

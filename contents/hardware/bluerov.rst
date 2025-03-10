@@ -11,8 +11,8 @@ We have 2 BlueROV2s:
    :maxdepth: 2
    :caption: Contents:
    
-   /bluerov/deploy
-   /bluerov/build_and_flash
-   /bluerov/servo_and_light
-   /bluerov/alpha_arm
-   /bluerov/dvl
+   /contents/bluerov/deploy
+   /contents/bluerov/build_and_flash
+   /contents/bluerov/servo_and_light
+   /contents/bluerov/alpha_arm
+   /contents/bluerov/dvl

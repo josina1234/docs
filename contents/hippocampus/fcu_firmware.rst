@@ -6,7 +6,7 @@ Building the Firmware
 
 .. todo:: Add instructions for different FCUs, especially PixHawk 6C
 
-Assuming the PX4-Autopilot firmmware has been cloned and the build tools has been installed as described in :ref:`getting_started/px4_setup:PX4 Setup`, building the firmware for the PixRacer is done by
+Assuming the PX4-Autopilot firmmware has been cloned and the build tools has been installed as described in :ref:`PX4 Setup <px4-setup>`, building the firmware for the PixRacer is done by
 
 .. code-block:: console
 

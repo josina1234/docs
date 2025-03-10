@@ -1,3 +1,5 @@
+.. _px4-setup:
+
 PX4 Setup
 #########
 

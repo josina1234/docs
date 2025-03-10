@@ -5,5 +5,5 @@ Time Synchronization
    :maxdepth: 2
    :caption: Contents:
 
-   /time_synchronization/server
-   /time_synchronization/client
+   /contents/time_synchronization/server
+   /contents/time_synchronization/client

@@ -4,4 +4,4 @@ Buttons
 .. toctree::
    :maxdepth: 2
    
-   /buttons/buttons
+   /contents/buttons/buttons

@@ -8,6 +8,6 @@ ROS Deprecated
    :maxdepth: 2
    :caption: Contents:
 
-   /ros_deprecated/getting_started
-   /ros_deprecated/raspberry_pi_4b_setup
-   /ros_deprecated/workflow_and_style_guide
+   /contents/ros_deprecated/getting_started
+   /contents/ros_deprecated/raspberry_pi_4b_setup
+   /contents/ros_deprecated/workflow_and_style_guide

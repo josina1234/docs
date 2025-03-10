@@ -5,5 +5,5 @@ RF Modules
    :maxdepth: 1
    :caption: Contents:
 
-   /rf/dvb_t.rst
+   /contents/rf/dvb_t.rst
 

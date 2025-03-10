@@ -5,4 +5,4 @@ Path Follower
    :maxdepth: 2
    :caption: Contents:
    
-   /path_follower/concept
+   /contents/path_follower/concept

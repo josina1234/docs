@@ -69,7 +69,7 @@ The Good Way
    This section is identical to "the fast way". We leave this in here for explanations.
 
 zsh
-===
+---
 
 We prefer using the Z shell (zsh). To install:
 
@@ -132,7 +132,7 @@ To apply changes:
 
 
 Byobu
-=====
+-----
 
 To install `Byobu <https://www.byobu.org/>`_, a terminal multiplexer:
 
@@ -148,7 +148,7 @@ Enable Byobu:
 
 
 VIM
-===
+---
 
 To install vim:
 
