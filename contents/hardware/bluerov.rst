@@ -16,3 +16,4 @@ We have 2 BlueROV2s:
    /contents/bluerov/servo_and_light
    /contents/bluerov/alpha_arm
    /contents/bluerov/dvl
+   /contents/bluerov/full_uvms_setup
