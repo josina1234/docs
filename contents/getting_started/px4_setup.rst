@@ -161,10 +161,12 @@ If the setup is working, :code:`ros2 topic list` should show the FMUs in and out
    /uuv00/fmu/out/vehicle_status [px4_msgs/msg/VehicleStatus]
 
 
-MAVLink Router
-==============
+MAVLink Router / QGroundControl
+===============================
 
-Nice to use QGroundcontrol for settings parameters and calibrating sensors. Otherwise, QGC will be probably not used at all.
+QGroundControl is very useful to set parameters and to calibrate the sensors of the FCU. The MAVLink Router is needed to connect to the QGroundControl App on your (Desktop) computer.
+
+If not installed on the Raspberry Pi of the vehicle:
 
 .. code-block:: console
 
@@ -188,12 +190,17 @@ The configuration file is at :file:`/etc/mavlink-router/main.conf` and can conta
    Device =/dev/ttyACM0
    Baud = 921600
 
-   [UdpEndpoint lennart]
+   [UdpEndpoint hippo-celsius]
    Mode = normal
-   Address = 192.168.0.128
+   Address = 192.168.0.115
    Port = 14550
 
-You can add or change the UDP endpoint to match your requirements.
+Adjust the address to your ground control computer's IP address if you are not using the :file:`hippo-celsius` Desktop computer within the lab.
+
+.. attention:: 
+
+   The UDP Endpoint currently does not work for the very first connection. Manual way of connecting via TCP is described below.
+
 
 Run the router via
 
@@ -201,4 +208,39 @@ Run the router via
 
    $ mavlink-routerd
 
-Maybe one needs to add a connection manually in QGroundControl (Application settings -> comm links).
+
+Manual Connection to QGroundControl
+===================================
+
+First, the mavlink router needs to be running on the vehicle.
+
+In QGC, click on the top left corner icon -> Application settings -> Comm links -> Add
+
+
+.. figure:: /res/images/qgc_where_to_find_settings.png
+
+   Where to find the settings.
+
+Add a TCP comm link with standard settings. Add the vehicle's name and IP address. It should look like this:
+
+.. figure:: /res/images/qgc_manually_add_tcp_connection.png
+
+   TCP comm link settings for UUV02.
+
+Now, you should be able to connect. The vehicle setup page should open:
+
+.. figure:: /res/images/qgc_vehicle_setup.png
+
+.. note:: 
+
+   After this first manual connection via TCP from your ground control station to the vehicle, the UDP endpoint should/will start working.
+
+
+Sensor Calibration 
+==================
+
+You might have to calibrate the vehicle's sensors. Click on Sensors:
+
+.. figure:: /res/images/qgc_sensors_setup.png
+
+and follow the instructions.
