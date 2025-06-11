@@ -38,6 +38,8 @@ extensions = [
     "sphinx_favicon",
     "sphinxcontrib.asciinema",
     "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_togglebutton",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
